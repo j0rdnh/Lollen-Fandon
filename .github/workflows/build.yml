@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -22,9 +24,7 @@ jobs:
           chmod: 0775
       - run: tweego Lollen_Fandon.twee -o index.html
 
-      - name: Deploy to Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: ./
+          folder: html
