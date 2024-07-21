@@ -112,7 +112,7 @@ ul { list-style-type: '✼  '; }
 
 ul > ul { list-style-type: '✴︎  '; }
 
-ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Attend to Matter of Danger and Wounds" tags="" position="600,350" size="100,100"></tw-passagedata><tw-passagedata pid="2" name="Attend to Matters of Persuasion and Scandal" tags="" position="475,350" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="Attend to Matters of Shadows and Suspicion" tags="" position="475,600" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Attend to Matters of Society!" tags="" position="725,350" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="Attend to Matters of Watchfulness and Nightmares" tags="" position="600,475" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="Attend to Matters of the Heart!" tags="" position="475,725" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="Compile licentious gossip" tags="" position="925,725" size="100,100"></tw-passagedata><tw-passagedata pid="8" name="Compose a poem" tags="" position="800,725" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="Correspond with a contact at the Shuttered Palace" tags="" position="475,475" size="100,100"></tw-passagedata><tw-passagedata pid="10" name="Dealing with the Colonel" tags="" position="1200,925" size="100,100">A Disgruntled Colonel is writing his memoirs...</tw-passagedata><tw-passagedata pid="11" name="Employ the services of the Clay Corroborator" tags="" position="1225,475" size="100,100"></tw-passagedata><tw-passagedata pid="12" name="Epistolary Matters" tags="" position="800,850" size="100,100">Compose letters to other players, and send them. Or, if you have letters, read them.
+ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Attend to Matters of Danger and Wounds" tags="" position="600,350" size="100,100"></tw-passagedata><tw-passagedata pid="2" name="Attend to Matters of Persuasion and Scandal" tags="" position="475,350" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="Attend to Matters of Shadows and Suspicion" tags="" position="475,600" size="100,100"></tw-passagedata><tw-passagedata pid="4" name="Attend to Matters of Society!" tags="" position="725,350" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="Attend to Matters of Watchfulness and Nightmares" tags="" position="600,475" size="100,100"></tw-passagedata><tw-passagedata pid="6" name="Attend to Matters of the Heart!" tags="" position="475,725" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="Compile licentious gossip" tags="" position="925,725" size="100,100"></tw-passagedata><tw-passagedata pid="8" name="Compose a poem" tags="" position="800,725" size="100,100"></tw-passagedata><tw-passagedata pid="9" name="Correspond with a contact at the Shuttered Palace" tags="" position="475,475" size="100,100"></tw-passagedata><tw-passagedata pid="10" name="Dealing with the Colonel" tags="" position="1200,925" size="100,100">A Disgruntled Colonel is writing his memoirs...</tw-passagedata><tw-passagedata pid="11" name="Employ the services of the Clay Corroborator" tags="" position="1225,475" size="100,100"></tw-passagedata><tw-passagedata pid="12" name="Epistolary Matters" tags="" position="800,850" size="100,100">Compose letters to other players, and send them. Or, if you have letters, read them.
 
 &#39;&#39;Once you have composed a letter, you can mail it to someone who has accepted your Calling Card. Mailing most letters will increase your Corresponding... quality, which can be exchanged for rewards in this card. You cannot mail a letter to someone who has too many similar letters still unopened.&#39;&#39;
 &lt;&lt;if !$hasEstablishingSocialRelations&gt;&gt;
@@ -163,8 +163,10 @@ Do you have letters to read?</tw-passagedata><tw-passagedata pid="13" name="Give
 
 Interestingly, it&#39;s a list with your name at the bottom. You say nothing as the Constable charges, wailing, past.
 
-&lt;&lt;set $stolenCorrespondence =+ 1&gt;&gt;
-&lt;&lt;changePoints $suspicion &quot;2&quot;&gt;&gt;
+&lt;&lt;silent&gt;&gt;
+  &lt;&lt;set $stolenCorrespondence =+ 1&gt;&gt;
+  &lt;&lt;changePoints $suspicion &quot;2&quot;&gt;&gt;
+&lt;&lt;/silent&gt;&gt;
 You&#39;ve gained 1 x Stolen Correspondence
 Suspicion is dropping…</tw-passagedata><tw-passagedata pid="17" name="Opportunity Deck" tags="" position="950,600" size="100,100">&lt;&lt;if $location == &quot;Fallen London&quot;&gt;&gt;
 	&lt;&lt;if $suspicion == 2&gt;&gt;
@@ -220,7 +222,7 @@ Suspicion is dropping…</tw-passagedata><tw-passagedata pid="28" name="Write do
 * [[Attend to Matters of Society!]]
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
-* [[Attend to Matter of Danger and Wounds]]
+* [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
 * [[Send a Message to a Contact]]
 * [[Give a Gift of Fate]]
