@@ -22,7 +22,7 @@ jobs:
         with:
           repo: tmedwards/tweego
           chmod: 0775
-      - run: tweego Lollen_Fandon.twee -o index.html
+      - run: -o tweego Lollen_Fandon.twee index.html
 
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4
