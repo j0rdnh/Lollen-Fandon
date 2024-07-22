@@ -160,6 +160,10 @@ Suspicion is dropping…
 
 
 
+:: Start
+
+
+
 :: StoryInit {"position":"0,0","size":"100,100"}
 <<set
   $hasALetterReadyToMail to false,
