@@ -1,0 +1,281 @@
+:: StoryTitle
+Lollen Fandon
+
+
+:: StoryData
+{
+  "ifid": "e60df512-18f7-4aa5-b5e0-91cada449dee",
+  "format": "SugarCube",
+  "format-version": "2.37.0",
+  "start": "Your Social Engagements",
+  "zoom": 0.6
+}
+
+
+:: Attend to Matters of Danger and Wounds {"position":"600,350"}
+
+
+
+:: Attend to Matters of Persuasion and Scandal {"position":"475,350"}
+
+
+
+:: Attend to Matters of Shadows and Suspicion {"position":"475,600"}
+
+
+
+:: Attend to Matters of Society! {"position":"725,350"}
+
+
+
+:: Attend to Matters of Watchfulness and Nightmares {"position":"600,475"}
+
+
+
+:: Attend to Matters of the Heart! {"position":"475,725"}
+
+
+
+:: Compile licentious gossip {"position":"925,725"}
+
+
+
+:: Compose a poem {"position":"800,725"}
+
+
+
+:: Correspond with a contact at the Shuttered Palace {"position":"475,475"}
+
+
+
+:: Dealing with the Colonel {"position":"1200,925"}
+A Disgruntled Colonel is writing his memoirs...
+
+
+:: Employ the services of the Clay Corroborator {"position":"1225,475"}
+
+
+
+:: Epistolary Matters {"position":"800,850"}
+Compose letters to other players, and send them. Or, if you have letters, read them.
+
+''Once you have composed a letter, you can mail it to someone who has accepted your Calling Card. Mailing most letters will increase your Corresponding... quality, which can be exchanged for rewards in this card. You cannot mail a letter to someone who has too many similar letters still unopened.''
+<<if !$hasEstablishingSocialRelations>>
+  <<if !$hasALetterReadyToMail>>
+    <<if $persuasive >= 80>>
+      <<if ['The Mycologenes','The Nocturnals','The Bazaarines','The Terpsichoreans','The Celestials'].includes($identifiedWithASchool) and $touchingLoveStory > 0>>
+	    [[Compose a poem]]
+	    Offer beauty.
+
+	    ''The cost of composing this letter varies depending on the poetic school you are identified with. The recipient must have at least one point of Inspired... already. They can read the letter to increase their Inspired... quality.''
+      <</if>>
+      <<if $aStolenKiss > 0>>
+	[[Compile licentious gossip]]
+	It's meant to spread.
+
+	''The recipient can read this to increase their Persuasive.''
+      <</if>>
+    <</if>>
+    <<if $dangerous > 80 and $talesOfTerror > 4>>
+      [[Write down some favoured fighting techniques]]
+      Who knows? Maybe one day there'll be a whole fighting style modelled after yours.
+
+      ''The recipient can read this to increase their Dangerous.''
+    <</if>>
+    <<if $shadowy > 80 and $journalsOfInfamy > 4>>
+      [[Write down a beloved family recipe]]
+      The best scones in the Neath. For context, you will preface the recipe with an //extensive// description of various places, persons, constable patrol patrol routes...
+
+      ''The recipient can read this to increase their shadowy.''
+    <</if>>
+  <</if>>
+  <<if $penny > 0>>
+    [[Send a postcard]]
+    A simple note. Let them know how the Neath is treating you.
+
+    ''This simply allows you to send a custom message to them. There are no in-game effects except for the cost of postage.''
+  <</if>>
+  [[The rewards of correspondence]]
+  ''Spend Corresponding... for rewards.''
+<</if>>
+[[Sort through incoming mail]]
+Do you have letters to read?
+
+
+:: Give a Gift of Fate {"position":"600,725"}
+
+
+
+:: Lay a false trail {"position":"1100,725"}
+
+
+
+:: Make sure nobody is telling tales {"position":"1225,600"}
+
+
+
+:: Official incompetence {"position":"1225,725"}
+A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
+
+''This will help you with Suspicion.''
+
+<h1>Success</h1>
+''A pleasing piece of luck''
+
+Interestingly, it's a list with your name at the bottom. You say nothing as the Constable charges, wailing, past.
+
+<<silent>>
+  <<set $stolenCorrespondence =+ 1>>
+  <<changePoints $suspicion "2">>
+<</silent>>
+You've gained 1 x Stolen Correspondence
+Suspicion is dropping…
+
+
+:: Opportunity Deck {"position":"950,600"}
+<<if $location == "Fallen London">>
+	<<if $suspicion == 2>>
+    	[[The Law's Long Arm]]
+    	Are those Constables following you?
+    <</if>>
+    <<if $aNameWhisperedInDarkness >= 3 && $aNameWhisperedInDarkness <=5>>
+    	[[The Ways of the Flit]] 
+    <</if>>
+<</if>>
+
+
+:: Seek a Patron! {"position":"725,475"}
+
+
+
+:: Send a Message to a Contact {"position":"350,600"}
+
+
+
+:: Send a postcard {"position":"675,850"}
+
+
+
+:: Sort through incoming mail {"position":"925,975"}
+
+
+
+:: StoryInit {"position":"0,0","size":"100,100"}
+<<set
+  $hasALetterReadyToMail to false,
+  $identifiedWithASchool to "The Mycologenes",
+  $persuasive to 94,
+  $touchingLoveStory to 9,
+  $hasEstablishingSocialRelations to false,
+  $aStolenKiss to 6,
+  $dangerous to 87,
+  $talesOfTerror to 156,
+  $shadowy to 90,
+  $journalsOfInfamy to 10,
+  $penny to 617,
+  $stolenCorrespondence to 0,
+  $suspicion to 2,
+  $countingTheDays to 0,
+  $location to "Fallen London",
+  $infernalContract to 0,
+  $spendingSecrets to 0,
+  $aNameWhisperedInDarkness to 4
+>>
+
+
+:: StoryMenu [header] {"position":"800,600"}
+[[Opportunity Deck]]
+[[Your Social Engagements]]
+
+
+:: The Law's Long Arm {"position":"1100,600"}
+Are those Constables following you? Were you careless? Has someone's nerve broken? Best deal with it.
+
+* [[Official incompetence]]
+<<if $infernalContract >= 10 and $spendingSecrets >=4 and $countingTheDays < 6>>
+  * [[Unleash Baseborn & Fowlingpiece]]]
+  * [[Lay a false trail]]
+  * [[Make sure nobody is telling tales]]
+  * [[Employ the services of the Clay Corroborator]]
+<</if>>
+
+
+:: The Ways of the Flit {"position":"950,450"}
+Swaying ropes above the streets...
+
+
+:: The rewards of correspondence {"position":"800,975"}
+
+
+
+:: Unleash Baseborn & Fowlingpiece {"position":"1100,475"}
+The Neath's most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
+
+<h1>Success</h1>
+''Expensive, but worth it''
+
+'The Constable in question has signed a testimonial to the effect that you didn't do it, you wouldn't know how to do it, and that you were in Paris at the time it happened.'
+
+<<changePoints $countingTheDays 5>>
+<<changePoints $suspicion random(6, 7)>>
+<<set $infernalContract -= 10>>
+
+Counting the Days is increasing…
+You've lost 10 x Infernal Contract
+Suspicion is dropping…
+
+
+:: Write down a beloved family recipe {"position":"675,975"}
+
+
+
+:: Write down some favoured fighting techniques {"position":"925,850"}
+
+
+
+:: Your Social Engagements {"position":"600,600","size":"100,100"}
+* [[Epistolary Matters]]
+* [[Seek a Patron!]]
+* [[Attend to Matters of Society!]]
+* [[Attend to Matters of Watchfulness and Nightmares]]
+* [[Attend to Matters of Shadows and Suspicion]]
+* [[Attend to Matters of Danger and Wounds]]
+* [[Attend to Matters of Persuasion and Scandal]]
+* [[Send a Message to a Contact]]
+* [[Give a Gift of Fate]]
+* [[Attend to Matters of the Heart!]]
+* [[Correspond with a contact at the Shuttered Palace]]
+
+
+:: changePoints [widget] {"position":"250,0","size":"100,100"}
+<<widget "changePoints">>
+	<<set
+		_var = _args[0],
+    	_cP = _args[1],
+    	_currentLevel = Math.floor(_var),
+   		_nextLevel = _currentLevel + 1,
+    	_currentCP = (_var - _currentLevel) * _nextLevel
+  	>>
+  	<<for _x range _cP>>
+    	<<set _currentCP += 1>>
+    	<<if _currentCP == _nextLevel>>
+      		<<set _currentCP = 0, _nextLevel += 1>>
+    	<</if>>
+  	<</for>>
+<</widget>>
+
+
+:: styles [header] {"position":"125,0","size":"100,100"}
+
+
+
+:: StoryStylesheet [stylesheet]
+@import url('https://fonts.googleapis.com/css?family=Barlow');
+
+tw-story { font: 1em "Barlow", sans-serif; }
+
+ul { list-style-type: '✼  '; }
+
+ul > ul { list-style-type: '✴︎  '; }
+
+ul > ul > ul { list-style-type: '✹  '; }

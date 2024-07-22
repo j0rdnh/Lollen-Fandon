@@ -1,0 +1,7 @@
+sugarcube-2:
+  macros:
+    changePoints:
+      name: changePoints
+    silent:
+      name: silent
+      container: true
