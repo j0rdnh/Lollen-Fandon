@@ -5,3 +5,5 @@ sugarcube-2:
     silent:
       name: silent
       container: true
+    changePointsRange:
+      name: changePointsRange
