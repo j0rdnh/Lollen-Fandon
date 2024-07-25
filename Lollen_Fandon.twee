@@ -92,10 +92,12 @@ Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may
 <<if $hardEarnedLesson >= 5>>
   [[The strength of scars]]
 <</if>>
-<<if $dangerous >= 10 and $friend.wounds >= 3>>
+<<silent>>
+/* <<if $dangerous >= 10 and $friend.wounds >= 3>>
   [[Nurse a friend back to health]]
   [[Poison an acquaintance!]]
-<</if>>
+<</if>> */
+<</silent>>
 <<if $wounds >= 2>>
   [[Time in Bed]]
 <</if>>
@@ -162,6 +164,11 @@ Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You ma
 
 :: Dealing with the Colonel {"position":"1200,925"}
 A Disgruntled Colonel is writing his memoirs...
+
+
+:: Debug Panel
+come here to run the code
+<<set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5>>
 
 
 :: Dupe a friend into covering for you {"position":"450,175"}
@@ -238,7 +245,7 @@ Do you have letters to read?
 
 
 
-:: Nurse a friend back to health {"position":"450,525"}
+/* :: Nurse a friend back to health {"position":"450,525"} */
 
 
 
@@ -272,7 +279,7 @@ Suspicion is dropping…
 <</if>>
 
 
-:: Poison an acquaintance! {"position":"450,675"}
+/* :: Poison an acquaintance! {"position":"450,675"} */
 
 
 
@@ -451,6 +458,7 @@ Suspicion is dropping…
   $volumeOfCollatedResearch to 3,
   $whisperedHint to 2103,
   $whisperSatinScrap to 3,
+  $wounds to 0,
   $zeeZtory to 56
 >>
 <<set $friend to null>>
@@ -459,6 +467,7 @@ Suspicion is dropping…
 :: StoryMenu [header] {"position":"0,1300"}
 [[Opportunity Deck]]
 [[Your Social Engagements]]
+[[Debug Panel]]
 
 
 :: The Law's Long Arm {"position":"300,2025"}
