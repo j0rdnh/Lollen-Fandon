@@ -456,6 +456,7 @@ Suspicion is dropping…
   $volumeOfCollatedResearch to 3,
   $whisperedHint to 2103,
   $whisperSatinScrap to 3,
+  $wounds to 0,
   $zeeZtory to 56
 >>
 <<set $friend to null>>
