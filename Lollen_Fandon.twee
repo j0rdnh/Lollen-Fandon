@@ -92,15 +92,13 @@ Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may
 <<if $hardEarnedLesson >= 5>>
   [[The strength of scars]]
 <</if>>
-<<silent>>
+<<if $wounds >= 2>>
+  [[Time in Bed]]
+<</if>>
 /* <<if $dangerous >= 10 and $friend.wounds >= 3>>
   [[Nurse a friend back to health]]
   [[Poison an acquaintance!]]
 <</if>> */
-<</silent>>
-<<if $wounds >= 2>>
-  [[Time in Bed]]
-<</if>>
 
 
 :: Attend to Matters of Persuasion and Scandal {"position":"300,1625"}
