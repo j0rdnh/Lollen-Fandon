@@ -91,10 +91,12 @@ An honest change of heart? Or just the tribute paid by vice to virtue?
 Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 <<if $hardEarnedLesson >= 5>>
-  [[The strength of scars]]
+  - [[The strength of scars]]
 <</if>>
+<</nobr>>
+<<nobr>>
 <<if $wounds >= 2>>
-  [[Time in Bed]]
+  - [[Time in Bed]]
 <</if>>
 <</nobr>>
 /* <<if $dangerous >= 10 and $friend.wounds >= 3>>
@@ -166,7 +168,7 @@ Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You ma
 A Disgruntled Colonel is writing his memoirs...
 
 
-:: Debug Panel
+:: Debug Panel {"position":"50,1050"}
 come here to run the code
 <<set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5>>
 
