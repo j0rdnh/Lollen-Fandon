@@ -12,14 +12,13 @@ Lollen Fandon
 }
 
 
-:: An easy confidence {"position":"450,1775"}
+:: An easy confidence {"position":"500,1175"}
 You're better than you thought.
 ''This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.''
-
 <h3>Success</h3>
 ''A flashed half-smile''
 They turn and look when you pass. Oh yes they do.
-<<silent>>
+<<nobr>>
   <<set $confidentSmile -= 5>>
   <<if $persuasive < 200>>
     <<changePointsRange $persuasive "1" "50">>
@@ -30,43 +29,38 @@ They turn and look when you pass. Oh yes they do.
   <<if $shadowy < 200>>
     <<changePointsRange $shadowy "1" "50">>
   <</if>>
-<</silent>>
+<</nobr>>
 
 
-:: Ask a friend to cover for you {"position":"450,250"}
-You were nowhere near the place! Ask this upstanding citizen!
-''This will invite a friend to assist you.''
-<h3>When Sent</h3>
-''A potential alibi''
-If your friend's prepared to bend the truth, the Constables will have a hard time making this one stick.
-
-Suspected by the Constables [Friend's name] (+1)
-
-<h3>In Messages Tab</h3>
-<h4>You will receive:</h4>
-You have asked [Friend's name] to help with the Suspicion surrounding you.
-
-<h4>Your friend will receive:</h4>
-The Constables are investigating [your name]. Could you help them, and lower their Suspicion?
+:: An old street sign {"position":"500,1900"}
+When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
 
 
-:: Ask someone for help in laying rumours to rest {"position":"450,1475"}
-The wicked things they say! You need a faithful friend to pooh-pooh this nonsense.
-''With help, you can reduce Scandal.''
-<h3>When Sent</h3>
-''The request is sent''
-Perhaps your friend will help you. If not, perhaps you should seek a small revenge.
 
-Hoping for Help With a Scandal [Friend's name] (+1)
-<h3>In Messages Tab</h3>
-<h4>You will receive:</h4>
-Hopefully [friend] will be willing to help redeem your good name!
+:: A Reputation of Some Importance: Another Way {"position":"500,775"}
+Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
+<h3>Success</h3>
+''The way ahead is clear'''
+Londoners will be informed of your brilliance.
+* You have a new Accomplishment... A Person of Some Importance
+* You've lost 12 x Notability
+<<nobr>>
+<<listbox $aPersonOfSomeImportance>>
+  <<option "A Shattering Force">>
+  <<option "A Legendary Charisma">>
+  <<option "An Invisible Eminence">>
+  <<option "An Extraordinary Mind">>
+<</listbox>>
+<<set $notability -= 12>>
+<</nobr>>
 
-<h4>Your friend will receive:</h4>
-[Your name] needs you to divert attention from their sins. Can you trust them?
+
+:: A trip to the Flit {"position":"500,1800"}
 
 
-:: Attend a Church Service {"position":"450,1700"}
+
+:: Attend a Church Service {"position":"500,1100"}
 An honest change of heart? Or just the tribute paid by vice to virtue?
 ''You may find your Scandal reduced a little.''
 <<for _x range 100>>
@@ -87,16 +81,16 @@ An honest change of heart? Or just the tribute paid by vice to virtue?
 <</for>> 
 
 
-:: Attend to Matters of Danger and Wounds {"position":"300,650"}
+:: Attend to Matters of Danger and Wounds {"position":"350,500"}
 Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 <<if $hardEarnedLesson >= 5>>
-  - [[The strength of scars]]
+  * [[The strength of scars]]
 <</if>>
 <</nobr>>
 <<nobr>>
 <<if $wounds >= 2>>
-  - [[Time in Bed]]
+  * [[Time in Bed]]
 <</if>>
 <</nobr>>
 /* <<if $dangerous >= 10 and $friend.wounds >= 3>>
@@ -105,179 +99,210 @@ Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may
 <</if>> */
 
 
-:: Attend to Matters of Persuasion and Scandal {"position":"300,1625"}
+:: Attend to Matters of Persuasion and Scandal {"position":"350,1100"}
 Here you may find Persuasive pursuits, and opportunities to lower Scandal. You may also work with acquaintances for mutual benefit.
-<<if $persuasive >= 5>>
-  [[Meet someone for a Coffee at Caligula's]]
-<</if>>
+<<nobr>>
+/* <<if $persuasive >= 5>>
+  * [[Meet someone for a Coffee at Caligula's]]
+<</if>> */
+<</nobr>>
+<<nobr>>
 <<if $confidentSmile >= 5 and $persuasive < 230>>
-  [[An easy confidence]]
+  * [[An easy confidence]]
 <</if>>
-<<if $persuasive >= 30 and $scandal >= 2>>
-  [[Ask someone for help in laying rumours to rest]]
-  [[Use someone as your dupe]]
-<</if>>
+<</nobr>>
+<<nobr>>
+/* <<if $persuasive >= 30 and $scandal >= 2>>
+  * [[Ask someone for help in laying rumours to rest]]
+  * [[Use someone as your dupe]]
+<</if>> */
+<</nobr>>
+<<nobr>>
 <<if $scandal >= 3>>
-  [[Attend a Church Service]]
+  * [[Attend a Church Service]]
 <</if>>
+<</nobr>>
 
 
-:: Attend to Matters of Shadows and Suspicion {"position":"300,400"}
+:: Attend to Matters of Shadows and Suspicion {"position":"350,325"}
 Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You may also work with acquaintances for mutual benefit.
-<<if $shadowy >= 5>>
-  [[Invite someone to a spot of Suspicious Loitering]]
-<</if>>
+<<nobr>>
+/* <<if $shadowy >= 5>>
+  * [[Invite someone to a spot of Suspicious Loitering]]
+<</if>> */
+<</nobr>>
+<<nobr>>
 <<if $hastilyScrawledWarningNote >= 5>>
-  [[Tricks traps and treats]]
+  * [[Tricks traps and treats]]
 <</if>>
-<<if $suspicion >= 3>>
-  [[Ask a friend to cover for you]]
-  [[Dupe a friend into covering for you]]
+<</nobr>>
+<<nobr>>
+/* <<if $suspicion >= 3>>
+  * [[Ask a friend to cover for you]]
+  * [[Dupe a friend into covering for you]]
+<</if>> */
+<</nobr>>
+
+
+:: Attend to Matters of Society! {"position":"350,725"}
+Earn Confident Smiles and other delights.
+<<nobr>>
+  /* <<if $influence < 91 and !$aquaintanceWith and $friend.influence < 91 and !$friend.aquaintanceWith and !respondingToACallingCard>>
+    * [[Send a Calling Card]]
+  <</if>> */
+<</nobr>>
+<<if $aPersonOfSomeImportance != null>>
+  <<nobr>>
+    <<if $makingWaves >= {20 - {$bizarre + $dreaded + $respectable} + 4 * $notability} and $notability >= 1 and $obscurity < 3>>
+      * [[Use your influence to invite Slowcake's Amanuensis for a visit]]
+    <</if>>
+  <</nobr>>
+  <<nobr>>
+    <<if ["A Shattering Force", "A Legendary Charisma", "An Invisible Eminence", "An Extraordinary Mind"].includes($aPersonOfSomeImportance) and $notability >= 12>>
+      * [[A Reputation of Some Importance: Another Way]]
+    <</if>>
+  <</nobr>>
+  <<nobr>>
+    /* * [[A Reputation of Some Importance: Another Way (Fate)]] */
+  <</nobr>>
 <</if>>
 
 
-:: Attend to Matters of Society! {"position":"275,900"}
+:: Attend to Matters of Watchfulness and Nightmares {"position":"325,1250"}
+Here you may find Watchful pursuits, and opportunities to lower Nightmares. You may also work with acquaintances for mutual benefit.
+<<nobr>>
+  <<if $suddenInsight >= 5 and $watchful < 230>>
+    * [[Every stone]]
+  <</if>>
+<</nobr>>
+<<nobr>>
+  /* * [[Assist your friend with their Nightmares]]
+  * [[Make scientific study of your friend's Nightmares]] */
+<</nobr>>
 
 
-
-:: Attend to Matters of Watchfulness and Nightmares {"position":"275,525"}
-
-
-
-:: Attend to Matters of the Heart! {"position":"275,975"}
+:: Correspond with a contact at the Shuttered Palace {"position":"350,900"}
+You met a Wry Functionary at the Ambassador's Ball. You could cultivate this relationship.
+* [[Write a letter]]
 
 
-
-:: Compile licentious gossip {"position":"450,1125"}
-
-
-
-:: Compose a poem {"position":"450,1050"}
-
-
-
-:: Correspond with a contact at the Shuttered Palace {"position":"275,1425"}
-
-
-
-:: Cover for an Acquaintance (sincere)
-
-
-
-:: Dealing with the Colonel {"position":"1200,925"}
+:: Dealing with the Colonel {"position":"350,2025"}
 A Disgruntled Colonel is writing his memoirs...
+* [[Where the bodies are buried]]
 
 
-:: Debug Panel {"position":"50,1050"}
+:: Debug Panel {"position":"150,1350"}
 come here to run the code
 <<set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5>>
 
 
-:: Dupe a friend into covering for you {"position":"450,175"}
+:: Employ the services of the Clay Corroborator {"position":"525,1300"}
+You could not <em>possibly</em> be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
+<h3>Success</h3>
+''Alibis for days''
+The Clay man is [...] thorough. He was [...] with you all day yesterday. And [...] the day before. And, it transpires, all week. He produces receipts, corroborating your whereabouts [...]
+The law leaves with [...] their notebooks filled with an entirely fabricated social calendar.
+* Suspicion is dropping...
+* You've lost 100 x penny
+<<changePoints $suspicion "-7">>
+<<set $penny -= 100>>
 
 
-
-:: Employ the services of the Clay Corroborator {"position":"450,2100"}
-
-
-
-:: Epistolary Matters {"position":"300,1125"}
+<!-- :: Epistolary Matters {"position":"350,1075"}
 Compose letters to other players, and send them. Or, if you have letters, read them.
 
 ''Once you have composed a letter, you can mail it to someone who has accepted your Calling Card. Mailing most letters will increase your Corresponding... quality, which can be exchanged for rewards in this card. You cannot mail a letter to someone who has too many similar letters still unopened.''
 <<if !$hasEstablishingSocialRelations>>
   <<if !$hasALetterReadyToMail>>
-    <<if $persuasive >= 80>>
+    /* <<if $persuasive >= 80>>
       <<if ['The Mycologenes','The Nocturnals','The Bazaarines','The Terpsichoreans','The Celestials'].includes($identifiedWithASchool) and $touchingLoveStory > 0>>
-	    [[Compose a poem]]
-	    Offer beauty.
-
-	    ''The cost of composing this letter varies depending on the poetic school you are identified with. The recipient must have at least one point of Inspired... already. They can read the letter to increase their Inspired... quality.''
+	      * [[Compose a poem]]
       <</if>>
       <<if $aStolenKiss > 0>>
-	[[Compile licentious gossip]]
-	It's meant to spread.
-
-	''The recipient can read this to increase their Persuasive.''
+	      * [[Compile licentious gossip]]
       <</if>>
-    <</if>>
+    <</if>> 
     <<if $dangerous > 80 and $talesOfTerror > 4>>
-      [[Write down some favoured fighting techniques]]
-      Who knows? Maybe one day there'll be a whole fighting style modelled after yours.
-
-      ''The recipient can read this to increase their Dangerous.''
+      * [[Write down some favoured fighting techniques]]
     <</if>>
     <<if $shadowy > 80 and $journalsOfInfamy > 4>>
-      [[Write down a beloved family recipe]]
-      The best scones in the Neath. For context, you will preface the recipe with an //extensive// description of various places, persons, constable patrol patrol routes...
-
-      ''The recipient can read this to increase their shadowy.''
+      * [[Write down a beloved family recipe]]
     <</if>>
-  <</if>>
-  <<if $penny > 0>>
-    [[Send a postcard]]
-    A simple note. Let them know how the Neath is treating you.
-
-    ''This simply allows you to send a custom message to them. There are no in-game effects except for the cost of postage.''
-  <</if>>
-  [[The rewards of correspondence]]
-  ''Spend Corresponding... for rewards.''
+    <<if $penny > 0>>
+      * [[Send a postcard]]
+    <</if>>
+  <</if>> */
+  <</nobr>>
+  * [[The rewards of correspondence]]
 <</if>>
-[[Sort through incoming mail]]
-Do you have letters to read?
+* [[Sort through incoming mail]] -->
 
 
-:: Give a Gift of Fate {"position":"275,1350"}
-
-
-
-:: Invite someone to a spot of Suspicious Loitering {"position":"450,400"}
+<!-- :: Give a Gift of Fate {"position":"325,1475"} -->
 
 
 
-:: Lay a false trail {"position":"450,2025"}
+<!-- :: Invite someone to a spot of Suspicious Loitering {"position":"500,400"} -->
 
 
 
-:: Make sure nobody is telling tales {"position":"450,2175"}
+:: Lay a false trail {"position":"500,1500"}
+The truth is drab and grey, and involves you going to prison. Better the Constables have a series of lies to interpret.
+<h3>Success</h3>
+''He he he''
+Why did the robber stack vases in the victim's privy? What does the scrawl of 'MONSTROUS ARE THOSE WHO WILL NOT WITHIN' on the mirror mean? And why all the folded paper swans?
+* Suspicion is dropping...
+* Counting the Days is increasing...
+<<nobr>>
+  <<changePoints $suspicion "-3">>
+  <<changePoints $countingTheDays "5">>
+<</nobr>>
+
+
+:: Make sure nobody is telling tales {"position":"500,1600"}
+If you're the sort that is unlikely to ever be a member of the Parthenaeum, you could throw your weight about in the underworld.
+<h3>Success>
+''An inconvenient fad''
+Your knuckles are bruised – this fashion for iron hats among the youth will be the death of someone. But you're sure nobody is going to be talking to the Constables about you for a while.
+<<nobr>>
+  <<changePoints $countingTheDays>>
+  <<changePointsRange $suspicion "-9" "-5">>
+  <<changePoints $wounds "1">>
+<</nobr>>
+
+<!-- :: Meet someone for a Coffee at Caligula's {"position":"500,1625"} -->
 
 
 
-:: Meet someone for a Coffee at Caligula's {"position":"450,1625"}
+<!-- :: Nurse a friend back to health {"position":"450,525"} -->
 
 
 
-/* :: Nurse a friend back to health {"position":"450,525"} */
-
-
-
-:: Official incompetence {"position":"450,2250"}
+:: Official incompetence {"position":"500,1675"}
 A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
-
 ''This will help you with Suspicion.''
-
 <h1>Success</h1>
 ''A pleasing piece of luck''
-
 Interestingly, it's a list with your name at the bottom. You say nothing as the Constable charges, wailing, past.
-
-<<silent>>
+* You've gained 1 x Stolen Correspondence
+* Suspicion is dropping…
+<<nobr>>
   <<set $stolenCorrespondence =+ 1>>
-  <<changePoints $suspicion "2">>
-<</silent>>
-You've gained 1 x Stolen Correspondence
-Suspicion is dropping…
+  <<changePoints $suspicion "-2">>
+<</nobr>>
 
 
-:: Opportunity Deck {"position":"150,1950"}
+:: Opportunity Deck {"position":"175,1725"}
 <<if $location == "Fallen London">>
 	<<if $suspicion == 2>>
-    	[[The Law's Long Arm]]
-    	Are those Constables following you?
-    <</if>>
-    <<if $aNameWhisperedInDarkness >= 3 && $aNameWhisperedInDarkness <=5>>
-    	[[The Ways of the Flit]] 
-    <</if>>
+    * [[The Law's Long Arm]]
+  <</if>>
+  <<if $aNameWhisperedInDarkness >= 3 && $aNameWhisperedInDarkness <= 5>>
+    * [[The Ways of the Flit]] 
+  <</if>>
+  <<if $aNameSignedWithAFlourish >= 3 and $aNameSignedWithAFlourish <= 5>>
+    * [[Dealing with the Colonel]]
+  <</if>>
 <</if>>
 
 
@@ -285,19 +310,19 @@ Suspicion is dropping…
 
 
 
-:: Seek a Patron! {"position":"275,1275"}
+/* :: Seek a Patron! {"position":"325,1750"} */
 
 
 
-:: Send a Message to a Contact {"position":"275,825"}
+/* :: Send a Message to a Contact {"position":"325,925"} */
 
 
 
-:: Send a postcard {"position":"450,975"}
+/* :: Send a postcard {"position":"500,1000"} */
 
 
 
-:: Sort through incoming mail {"position":"450,900"}
+/* :: Sort through incoming mail {"position":"500,925"} */
 
 
 
@@ -311,6 +336,7 @@ Suspicion is dropping…
   $aeolianScream to 24,
   $amanitaSherry to 42,
   $anIdentityUncovered to 7,
+  $aPersonOfSomeImportance to null,
   $apostatesPsalm to 7,
   $attar to 7,
   $aClandestineRendevousAtWatchmakersHill to 1,
@@ -321,8 +347,10 @@ Suspicion is dropping…
   $aScionOfAStarvedRose to 1,
   $aVialOfQueenlyAttar to 1,
   $baptisedRattusFaberCorpse to 2,
+  $baroque to 2,
   $blackmailMaterial to 3,
   $bessemerSteelIngot to 20,
+  $bizarre to 5,
   $boneFragments to 300,
   $bookOfHiddenBodies to 1,
   $bottleOfBlackWingsAbsinthe to 2,
@@ -348,12 +376,13 @@ Suspicion is dropping…
   $crateOfIncorruptibleBiscuits to 2,
   $crypticClue to 1862,
   $daguerrotypeWithFadingMusicHallSingersAddress to 1,
-  $dangerous to 87,
+  $dangerous to 95,
   $darkdropCoffee to 3,
   $deedToADecommissionedSteamer to 1,
   $deepZeeCatch to 7,
   $direfulReflection to 3,
   $dubiousTestimony to 31,
+  $dreaded to 0,
   $dropOfPrisonersHoney to 283,
   $exceptionalShortStory to 1,
   $exquisiteToy to 1,
@@ -380,17 +409,20 @@ Suspicion is dropping…
   $identifiedWithASchool to "The Mycologenes",
   $implacableDetectivesBusinessCard to 5,
   $infernalContract to 19,
+  $influence to 1,
   $inklingOfIdentity to 21,
   $intriguingSnippet to 51,
   $jadeFragment to 3444,
   $jasmineLeaves to 15,
   $journalsOfInfamy to 10,
+  $katalepticToxicology to 1,
   $keyToYourRoomsAboveAGamblingDen to 1,
   $leatheryHumanHeart to 1,
   $location to "Fallen London",
   $locketDepictingTwinSisters to 1,
   $londonStreetSign to 18,
   $lumpOfLamplighterBeeswax to 148,
+  $makingWaves to 4,
   $maniacsPrayer to 178,
   $mapScrap to 69,
   $memoryOfAMuchLesserSelf to 11,
@@ -403,10 +435,13 @@ Suspicion is dropping…
   $myrrhScentedRose to 50,
   $mysteryOfTheElderContinent to 22,
   $nevercoldBrassSilver to 4793,
+  $nightmares to 4,
   $nightOnTheTown to 2,
   $nightWhisper to 2,
   $noduleOfDeepAmber to 2225,
   $noduleOfTremblingAmber to 1,
+  $notability to 0,
+  $obscurity to 0,
   $oneiricPearl to 1,
   $ostentatiousDiamond to 34,
   $pageFromTheLiberVisionis to 1,
@@ -425,15 +460,17 @@ Suspicion is dropping…
   $relicOfTheFourthCity to 74,
   $relicOfTheThirdCity to 18,
   $relicOfTheSecondCity to 24,
+  $respectability to 0,
   $romanticNotion to 43,
   $salveOfRighteousness to 1,
   $sapphire to 31,
+  $scandal to 1,
   $scrapOfIncendiaryGossip to 33,
   $screamingMapRightHandHalf to 2,
   $searingEnigma to 2,
   $secludedAddress to 11,
   $senseOfDejaVu to 3,
-  $shadowy to 90,
+  $shadowy to 74,
   $shardOfGlim to 259,
   $silkScrap to 1346,
   $skullInCoral to 2,
@@ -458,53 +495,99 @@ Suspicion is dropping…
   $visionOfTheSurface to 35,
   $vitalIntelligence to 1,
   $volumeOfCollatedResearch to 3,
+  $watchful to 72,
   $whisperedHint to 2103,
   $whisperSatinScrap to 3,
-  $wounds to 0,
+  $wounds to 1,
   $zeeZtory to 56
 >>
 <<set $friend to null>>
 
 
-:: StoryMenu [header] {"position":"0,1300"}
+:: StoryMenu [header] {"position":"0,1350"}
 [[Opportunity Deck]]
 [[Your Social Engagements]]
 [[Debug Panel]]
 
 
-:: The Law's Long Arm {"position":"300,2025"}
+:: The Law's Long Arm {"position":"350,1475"}
 Are those Constables following you? Were you careless? Has someone's nerve broken? Best deal with it.
-
 * [[Official incompetence]]
-<<if $infernalContract >= 10 and $spendingSecrets >=4 and $countingTheDays < 6>>
-  * [[Unleash Baseborn & Fowlingpiece]]]
-  * [[Lay a false trail]]
-  * [[Make sure nobody is telling tales]]
+<<if $spendingSecrets >= 4>>
+  <<if $countingTheDays < 6>>
+    <<if $infernalContract >=10>>
+      * [[Unleash Baseborn & Fowlingpiece]]
+    <</if>>
+  <<elseif $countingTheDays <= 9>>
+    * [[Lay a false trail]]
+  <<elseif $countingTheDays >= 12 and $countingTheDays <= 13>>
+    <<if ["Bohemians", "The Great Game", "The Docks", "Urchins", "Criminals", "Hell", "Revolutionaries", "Tomb-Colonists", "Rubbery Men"].includes($closestTo)>>
+      * [[Make sure nobody is telling tales]]
+    <</if>>
+  <</if>>
+<</if>>
+<<if $penny >= 100 and $clayCorroborator not null>>
   * [[Employ the services of the Clay Corroborator]]
 <</if>>
 
 
-:: The strength of scars {"position":"450,750"}
+:: The strength of scars {"position":"500,550"}
+Older, tougher, stronger, like a tree-root or a grizzled ape.
+''This will increase your Dangerous by an uncertain but significant amount, at the price of five Hard-Earned Lessons.''
+<h3>Success</h3>
+''Stand aside!''
+Seasoned veteran coming through!
+* You've lost 5 x Hard-Earned Lesson
+<<nobr>>
+<<if $dangerous < 200>>
+  * Dangerous is increasing...
+  <<changePointsRange $dangerous "1" "50">>   
+<</if>>
+<</nobr>> 
+<<nobr>>
+<<if $shadowy < 200>>
+  * Shadowy is increasing...
+  <<changePoints $shadowy "1">>
+<</if>>
+<</nobr>>
+<<nobr>>
+<<if $watchful < 200>>
+  * Watchful is increasing...
+  <<changePoints $watchful "1">>
+<</if>>
+<</nobr>>
+<<nobr>>
+  <<set $hardEarnedLesson -= 5>>
+<</nobr>>
+
+
+:: The Ways of the Flit {"position":"350,1850"}
+Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
+<<if !$routeTheFlit>>
+  <<nobr>>
+    <<if ratOnAString >= 20>>
+      * [[A trip to the Flit]]
+    <</if>>
+    /* * [[A secret road (3 FATE)]] */
+  <</nobr>>
+<<elseif $routeTheFlit not null>>
+  * [[An old street sign]]
+<</if>>
+
+
+:: The rewards of correspondence {"position":"675,1300"}
 
 
 
-:: The Ways of the Flit {"position":"275,1850"}
-Swaying ropes above the streets...
-
-
-:: The rewards of correspondence {"position":"450,1275"}
+:: Time in Bed {"position":"500,450"}
 
 
 
-:: Time in Bed {"position":"450,600"}
+:: Tricks traps and treats {"position":"500,325"}
 
 
 
-:: Tricks traps and treats {"position":"450,325"}
-
-
-
-:: Unleash Baseborn & Fowlingpiece {"position":"450,1950"}
+:: Unleash Baseborn & Fowlingpiece {"position":"500,1425"}
 The Neath's most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
 
 <h1>Success</h1>
@@ -521,20 +604,32 @@ You've lost 10 x Infernal Contract
 Suspicion is dropping…
 
 
-:: Use someone as your dupe {"position":"450,1550"}
+:: Use someone as your dupe {"position":"500,1025"}
 
 
 
-:: Write down a beloved family recipe {"position":"450,1200"}
+:: Use your influence to invite Slowcake's Amanuensis for a visit {"position":"500,675"}
 
 
 
-:: Write down some favoured fighting techniques {"position":"450,1350"}
+:: Where the bodies are buried {"position":"500,2025"}
 
 
 
-:: Your Social Engagements {"position":"150,1200"}
-* [[Epistolary Matters]]
+:: Write a letter {"position":"500,900"}
+
+
+
+:: Write down a beloved family recipe {"position":"675,1375"}
+
+
+
+:: Write down some favoured fighting techniques {"position":"675,1225"}
+
+
+
+:: Your Social Engagements {"position":"175,1000"}
+<!-- * [[Epistolary Matters]] -->
 * [[Seek a Patron!]]
 * [[Attend to Matters of Society!]]
 * [[Attend to Matters of Watchfulness and Nightmares]]
@@ -543,7 +638,7 @@ Suspicion is dropping…
 * [[Attend to Matters of Persuasion and Scandal]]
 * [[Send a Message to a Contact]]
 * [[Give a Gift of Fate]]
-* [[Attend to Matters of the Heart!]]
+<!-- * [[Attend to Matters of the Heart!]] -->
 * [[Correspond with a contact at the Shuttered Palace]]
 
 
@@ -597,6 +692,18 @@ Suspicion is dropping…
   <</for>>
 <</widget>>
 
+
+:: probability [widget] {"position":"700,0"}
+<<widget "probability">>
+  <<set 
+    _scaler = _args[0],
+    _qualityLevel = _args[1],
+    _difficultyLevel = _args[2],
+    _prob = _scaler * _qualityLevel / _difficultyLevel,
+    _prob = Math.floor(_prob),
+  >>
+  <<print _prob>>
+<</widget>>
 
 :: styles [header] {"position":"100,0"}
 
