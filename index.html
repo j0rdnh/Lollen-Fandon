@@ -647,8 +647,14 @@ Suspicion is dropping…</tw-passagedata><tw-passagedata pid="29" name="Use some
     _difficultyLevel = _args[2],
     _prob = _scaler * _qualityLevel / _difficultyLevel,
     _prob = Math.floor(_prob),
+    _try = random(100)
   &gt;&gt;
   &lt;&lt;print _prob&gt;&gt;
+  &lt;&lt;if _try &gt; _prob&gt;&gt;
+    &lt;&lt;return false&gt;&gt;
+  &lt;&lt;else&gt;&gt;
+    &lt;&lt;return true&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="39" name="styles" tags="header" position="100,0" size="100,100"></tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
 	/*! SugarCube JS */
