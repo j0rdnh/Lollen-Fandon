@@ -565,7 +565,7 @@ Seasoned veteran coming through!
 Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
 <<if !$routeTheFlit>>
   <<nobr>>
-    <<if ratOnAString >= 20>>
+    <<if $ratOnAString >= 20>>
       * [[A trip to the Flit]]
     <</if>>
     /* * [[A secret road (3 FATE)]] */
@@ -630,14 +630,11 @@ Suspicion is dropping…
 
 :: Your Social Engagements {"position":"175,1000"}
 <!-- * [[Epistolary Matters]] -->
-* [[Seek a Patron!]]
 * [[Attend to Matters of Society!]]
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
 * [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
-* [[Send a Message to a Contact]]
-* [[Give a Gift of Fate]]
 <!-- * [[Attend to Matters of the Heart!]] -->
 * [[Correspond with a contact at the Shuttered Palace]]
 
