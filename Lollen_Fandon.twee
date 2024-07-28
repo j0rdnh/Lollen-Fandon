@@ -571,7 +571,7 @@ Swaying ropes above the streets. A home to beggars, revolutionaries and the forg
     <</if>>
     /* * [[A secret road (3 FATE)]] */
   <</nobr>>
-<<else if $routeTheFlit not null>>
+<<else $routeTheFlit not null>>
   * [[An old street sign]]
 <</if>>
 
