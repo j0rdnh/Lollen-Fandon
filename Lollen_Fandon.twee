@@ -699,8 +699,14 @@ Suspicion is dropping…
     _difficultyLevel = _args[2],
     _prob = _scaler * _qualityLevel / _difficultyLevel,
     _prob = Math.floor(_prob),
+    _try = random(100)
   >>
   <<print _prob>>
+  <<if _try > _prob>>
+    <<return false>>
+  <<else>>
+    <<return true>>
+  <</if>>
 <</widget>>
 
 :: styles [header] {"position":"100,0"}
