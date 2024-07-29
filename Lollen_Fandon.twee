@@ -13,7 +13,38 @@ Lollen Fandon
 
 
 :: A disturbance outside {"position":"675,1325"}
+''Action Cost: 3''
+Someone is shouting, probably at someone else. That's how it usually works.
+<<nobr>>
+  <<set _x to (Math.random() * 100)>>
+<</nobr>>
+<<if _x <= 60>>
+  <h3>Success</h3>
+  ''Inventive invective'''
+  The argument goes on for a good hour. It explores the pedigree, the reputation and the anatomical idiosyncracies of both participants in some detail. It's not exactly soothing, but it is entertaining.
 
+  Nightmares is dropping…
+  Wounds is dropping…
+  /* [The Airs of London change…] */
+  You've gained 1 x Intriguing Snippet
+  <<nobr>>
+    <<changePoints $nightmares "-1">>
+    <<changePoints $wounds "-3">>
+    /* <<changePointsRange $theAirsOfLondon>> */
+    <<set $intriguingSnippet += 1>>
+  <</nobr>>
+<<else>>
+  <h3>Failure</h3>
+  ''On and on''
+  The disagreement is partly political, partly personal and wholly uninteresting. One party screeches like an owl in a well: the other affects a pedantic nasal whine. You bury your head under your pillow and eventually it stops. […]
+  
+  Wounds is dropping…
+  /* [The Airs of London change…] */
+  <<nobr>>
+    <<changePoints $wounds "-2">>
+    /* <<changePointsRange $theAirsOfLondon>> */
+  <</nobr>>
+<</if>>
 
 
 :: A dreamless sleep {"position":"675,425"}
