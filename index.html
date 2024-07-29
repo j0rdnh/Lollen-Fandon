@@ -121,16 +121,6 @@ ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twin
     } else {
       return true;
     };
-};
-window.probability = function (scaler, qualityLevel, difficultyLevel) {
-	let prob = scaler * qualityLevel / difficultyLevel;
-  	let prob = Math.floor(prob);
-  	let probTry = Math.random() * 100;
-  	if (probTry > prob) {
-    	return false;
-    } else {
-      return true;
-    };
 };</script><tw-passagedata pid="1" name="A Reputation of Some Importance: Another Way" tags="" position="500,775" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
 &#39;&#39;This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London&#39;s Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
@@ -163,7 +153,29 @@ They turn and look when you pass. Oh yes they do.
     &lt;&lt;changePointsRange $shadowy &quot;1&quot; &quot;50&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="An old street sign" tags="" position="500,1900" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
-&lt;&lt;probability 60 $shadowy 70&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Attend a Church Service" tags="" position="500,1100" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
+&lt;&lt;if probability(60, $shadowy, 70) is true&gt;&gt;
+  &lt;h3&gt;Success&lt;/h3&gt;
+  &#39;&#39;Quick and lucky and wise&#39;&#39;
+  Even the Raggedy Men have stopped looking for street signs. But you know better. Your prize is two hundred feet above ground, nailed to a factory chimney and black with soot
+  
+  Shadowy is increasing...
+  You have moved to a new area: The Flit
+  You&#39;ve gained 1 x London Street sign
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;set $londonStreetSign += 1&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;h3&gt;Failure&lt;/h3&gt;
+  &#39;&#39;Nothing&#39;&#39;
+  Not quick enough. Not lucky enough. If there are street signs still left up here, they&#39;re known only to bats.
+  
+  Shadowy is increasing...
+  You have moved to a new area: &quot;The Flit&quot;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set $londonStreetSign += 1&gt;&gt;
+  &lt;&lt;set $location = &quot;The Flit&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Attend a Church Service" tags="" position="500,1100" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
 &#39;&#39;You may find your Scandal reduced a little.&#39;&#39;
 &lt;&lt;for _x range 100&gt;&gt;
   &lt;&lt;if _x &lt; 70&gt;&gt;
