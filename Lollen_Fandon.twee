@@ -57,7 +57,7 @@ They turn and look when you pass. Oh yes they do.
 
 :: An old street sign {"position":"500,1900","size":"100,100"}
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
-<<set _proba to setup.probability(60, $shadowy, 70)>>
+<<set _proba to tw.probability(60, $shadowy, 70)>>
 <<if _proba is true>>
   <h3>Success</h3>
   ''Quick and lucky and wise''
@@ -78,29 +78,29 @@ When London was kneaded into its new form, the Masters declared the old street s
   You have moved to a new area: The Flit
 <</if>>
 <<nobr>>
-  <<set $londonStreetSign += 1>>
-  <<set $location = "The Flit">>
+  	<<set $londonStreetSign += 1>>
+ 	<<set $location = "The Flit">>
 <</nobr>>
+
 
 :: Attend a Church Service {"position":"500,1100","size":"100,100"}
 An honest change of heart? Or just the tribute paid by vice to virtue?
 ''You may find your Scandal reduced a little.''
-<<for _x range 100>>
-  <<if _x < 70>>
-    <h3>Success</h3>
-    ''An uplifting and profitable hour''
-    Your reputation is a little improved, and several of the congregation are attractive enough that you even consider returning next week.
-    <<changePoints $scandal "-2">>
-  <<else>>
-    <h3>Failure</h3>
-    ''An uplifting but unprofitable hour''
-    Other churchgoers frown and tut, and the vicar makes unflattering mention of you in his sermon. Still, several of the congregation are attractive enough that you don't feel your time was entirely wasted.
-    <<changePoints $scandal "1">>
-    <<if $persuasive<200>>
-      <<changePoints $persuasive "1">>
-    <</if>>
+<<set _x to (Math.random() * 100)>>
+<<if _x < 70>>
+  <h3>Success</h3>
+  ''An uplifting and profitable hour''
+  Your reputation is a little improved, and several of the congregation are attractive enough that you even consider returning next week.
+  <<changePoints $scandal "-2">>
+<<else>>
+  <h3>Failure</h3>
+  ''An uplifting but unprofitable hour''
+  Other churchgoers frown and tut, and the vicar makes unflattering mention of you in his sermon. Still, several of the congregation are attractive enough that you don't feel your time was entirely wasted.
+  <<changePoints $scandal "1">>
+  <<if $persuasive<200>>
+    <<changePoints $persuasive "1">>
   <</if>>
-<</for>>
+<</if>>
 
 
 :: Attend to Matters of Danger and Wounds {"position":"350,500","size":"100,100"}
@@ -345,11 +345,11 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
 
-:: Start {"position":"500,0","size":"100,100"}
+:: Start {"position":"0,0","size":"100,100"}
 
 
 
-:: StoryInit {"position":"400,0","size":"100,100"}
+:: StoryInit {"position":"100,0","size":"100,100"}
 <<set
   $aBadEnd to 1,
   $aeolianScream to 24,
@@ -664,7 +664,7 @@ Suspicion is dropping…
 <</nobr>>
 
 
-:: changePoints [widget] {"position":"200,0","size":"100,100"}
+:: changePoints [widget] {"position":"400,0","size":"100,100"}
 <<widget "changePoints">>
 	<<set
     /* _var is the changing variable, _cP is the amount of change */
@@ -686,7 +686,7 @@ Suspicion is dropping…
 <</widget>>
 
 
-:: changePointsRange [widget] {"position":"600,0","size":"100,100"}
+:: changePointsRange [widget] {"position":"500,0","size":"100,100"}
 <<widget "changePointsRange">>
 	<<set
     /* _var is the changing variable, _cPmin is the minimum amount of chang and cPmax is the maximum */
@@ -715,22 +715,120 @@ Suspicion is dropping…
 <</widget>>
 
 
-:: styles [header] {"position":"100,0","size":"100,100"}
+:: probability [function] {"position":"300,0","size":"100,100"}
+<<function "probability">>
+	<<set 
+    	_scaler to _args[0],
+        _qualityLevel to _args[1],
+        _difficultyLevel to _args[2],
+        _prob to (_scaler * _qualityLevel / _difficultyLevel),
+        _prob to Math.floor(_prob),
+        _probTry to (Math.random() * 100)
+    >>
+    <<if _probTry <  _prob>>
+		<<set _return to true>>
+    <<else>>
+    	<<set _return to false>>
+    <</if>>
+<</function>>
+
+
+:: styles [header] {"position":"700,0","size":"100,100"}
 
 
 
 :: StoryScript [script]
-setup.probability = function (scaler, qualityLevel, difficultyLevel) {
-	let prob = scaler * qualityLevel / difficultyLevel;
-  	prob = Math.floor(prob);
-  	let probTry = Math.random() * 100;
-  	if (probTry > prob) {
-    	return false;
-    } else {
-      return true;
-    };
-}
+setup.functions_macro ??= { prefix: 'tw' };
 
+Macro.add('function', {
+	tags : null,
+
+	handler() {
+		if (this.args.length === 0) {
+			return this.error('no function name specified');
+		}
+
+		const functionName = this.args[0];
+		const MacroContext = this;
+		const prefix       = setup?.functions_macro?.prefix ?? "tw";
+		if (prefix && typeof window[prefix] == "undefined") { window[prefix] = { } }
+		const target       = prefix ? window[prefix] : window;
+
+		if (target[functionName]) {
+			return this.error(`cannot clobber existing function "${functionName}"`);
+		}
+
+		try {
+			target[functionName] = (function (functionCode) {
+				return function() {
+					const shadowStore = {};
+
+					// Cache the existing value of the `_args` variable, if necessary.
+					if (State.temporary.hasOwnProperty('args')) {
+						shadowStore._args = State.temporary.args;
+					}
+
+					// Cache the existing value of the `_return` variable, if necessary.
+					if (State.temporary.hasOwnProperty('return')) {
+						shadowStore._return = State.temporary.return;
+					}
+
+					// Set up the function `_args` variable and add a shadow.
+					State.temporary.args = [...arguments];
+					MacroContext.addShadow('_args');
+					MacroContext.addShadow('_return');
+
+					try {
+						// Set up the error trapping variables.
+						const resFrag = document.createDocumentFragment();
+						const errList = [];
+
+						// Wikify the function's code.
+						new Wikifier(resFrag, functionCode);
+
+						// Carry over the output, unless there were errors.
+						Array.from(resFrag.querySelectorAll('.error')).forEach(errEl => {
+							errList.push(errEl.textContent);
+						});
+
+						if (errList.length === 0) {
+							return State.temporary.return;
+						}
+						else {
+							return MacroContext.error(`error${errList.length > 1 ? 's' : ''} within function code (${errList.join('; ')})`);
+						}
+					}
+					catch (ex) {
+						return MacroContext.error(`cannot execute function: ${ex.message}`);
+					}
+					finally {
+						// Revert the `_args` variable shadowing.
+						if (shadowStore.hasOwnProperty('_args')) {
+							State.temporary.args = shadowStore._args;
+						}
+						else {
+							delete State.temporary.args;
+						}
+						// Revert the `_return` variable shadowing.
+						if (shadowStore.hasOwnProperty('_return')) {
+							State.temporary.return = shadowStore._return;
+						}
+						else {
+							delete State.temporary.return;
+						}
+					}
+				}
+			})(this.payload[0].contents);
+		}
+		catch (ex) {
+			return this.error(`cannot create function "${functionName}": ${ex.message}`);
+		}
+	}
+});
+
+Story.lookup("tags", "function").forEach(p => {
+    $.wiki(p.text);
+});
 
 :: StoryStylesheet [stylesheet]
 @import url('https://fonts.googleapis.com/css?family=Barlow');
