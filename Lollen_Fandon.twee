@@ -319,7 +319,22 @@ Wounds is dropping… (-6 CP)
 
 
 :: A visit from the Repentant Forger {"position":"675,1150"}
+"I brought a little something to cheer you up."
 
+<h3>Success</h3>
+''Does your nose really look like that?''
+He's sketched a caricature of you on a slab of jade. He leaves it by your bedside as you chat. He's a little melancholy, and he doesn't do much to lift your spirits, but you sense he's glad of the company.
+
+You've gained 50 x Jade Fragment
+Wounds is dropping…
+Seeing through the Eyes of Icarus is increasing…
+/* [The Airs of London change…] */
+<<nobr>>
+  <<set $jadeFragment += 50>>
+  <<changePoints $wounds "-3">>
+  <<changePoints $seeingThroughTheEyesOfIcarus "1">>
+  /* <<changePointsRange $theAirsOfLondon>> */
+<</nobr>>
 
 
 :: A visit from the Sardonic Music-Hall Singer {"position":"675,550"}
