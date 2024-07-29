@@ -202,7 +202,52 @@ Macro.add('function', {
 
 Story.lookup("tags", "function").forEach(p => {
     $.wiki(p.text);
-});</script><tw-passagedata pid="1" name="A disturbance outside" tags="" position="100,100" size="100,100"></tw-passagedata><tw-passagedata pid="2" name="A dreamless sleep" tags="" position="225,100" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="An easy confidence" tags="" position="500,1175" size="100,100">You&#39;re better than you thought.
+});</script><tw-passagedata pid="1" name="A disturbance outside" tags="" position="675,1300" size="100,100">&#39;&#39;Action Cost: 3&#39;&#39;
+Someone is shouting, probably at someone else. That&#39;s how it usually works.
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set _x to (Math.random() * 100)&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;if _x &lt;= 60&gt;&gt;
+  &lt;h3&gt;Success&lt;/h3&gt;
+  &#39;&#39;Inventive invective&#39;&#39;&#39;
+  The argument goes on for a good hour. It explores the pedigree, the reputation and the anatomical idiosyncracies of both participants in some detail. It&#39;s not exactly soothing, but it is entertaining.
+
+  Nightmares is dropping…
+  Wounds is dropping…
+  /* [The Airs of London change…] */
+  You&#39;ve gained 1 x Intriguing Snippet
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $nightmares &quot;-1&quot;&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-3&quot;&gt;&gt;
+    /* &lt;&lt;changePointsRange $theAirsOfLondon&gt;&gt; */
+    &lt;&lt;set $intriguingSnippet += 1&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;h3&gt;Failure&lt;/h3&gt;
+  &#39;&#39;On and on&#39;&#39;
+  The disagreement is partly political, partly personal and wholly uninteresting. One party screeches like an owl in a well: the other affects a pedantic nasal whine. You bury your head under your pillow and eventually it stops. […]
+  
+  Wounds is dropping…
+  /* [The Airs of London change…] */
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-2&quot;&gt;&gt;
+    /* &lt;&lt;changePointsRange $theAirsOfLondon&gt;&gt; */
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="A dreamless sleep" tags="" position="675,400" size="100,100">&#39;&#39;Action Cost: 3&#39;&#39;
+Candles sink low. Gas-lamps burn pale. Footsteps are hushed. Even the rats have ceased to scurry.
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;The arms of Morpheus&#39;&#39;
+You awake refreshed, invigorated. A rasher gentleman might even leap from bed. You reserve your energies. But matters have improved.
+
+Wounds is dropping…
+Nightmares is dropping…
+[The Airs of London change…]
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;changePoints $wounds &quot;-7&quot;&gt;&gt;
+  &lt;&lt;changePoints $nightmares &quot;-2&quot;&gt;&gt;
+  &lt;&lt;set $theAirsOfLondon to 0&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="An easy confidence" tags="" position="500,1625" size="100,100">You&#39;re better than you thought.
 &#39;&#39;This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;A flashed half-smile&#39;&#39;
@@ -218,7 +263,7 @@ They turn and look when you pass. Oh yes they do.
   &lt;&lt;if $shadowy &lt; 200&gt;&gt;
     &lt;&lt;changePointsRange $shadowy &quot;1&quot; &quot;50&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="An old street sign" tags="" position="500,1900" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="An old street sign" tags="" position="500,2350" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
 &lt;&lt;set _proba to tw.probability(60, $shadowy, 70)&gt;&gt;
 &lt;&lt;if _proba is true&gt;&gt;
   &lt;h3&gt;Success&lt;/h3&gt;
@@ -242,7 +287,7 @@ They turn and look when you pass. Oh yes they do.
 &lt;&lt;nobr&gt;&gt;
   	&lt;&lt;set $londonStreetSign += 1&gt;&gt;
  	&lt;&lt;set $location = &quot;The Flit&quot;&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="A Reputation of Some Importance: Another Way" tags="" position="500,775" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="A Reputation of Some Importance: Another Way" tags="" position="500,1225" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
 &#39;&#39;This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London&#39;s Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;The way ahead is clear&#39;&#39;&#39;
@@ -257,7 +302,34 @@ Londoners will be informed of your brilliance.
   &lt;&lt;option &quot;An Extraordinary Mind&quot;&gt;&gt;
 &lt;&lt;/listbox&gt;&gt;
 &lt;&lt;set $notability -= 12&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="A succession of visitors" tags="" position="725,100" size="100,100"></tw-passagedata><tw-passagedata pid="7" name="A trip to the Flit" tags="" position="500,1800" size="100,100">A Raggedy Man, one of the Flit&#39;s beggars, will show you around if you bring something for the stew.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="A succession of visitors" tags="" position="675,1225" size="100,100">You&#39;d like to take the day off, but they will keep knocking.
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set _x to (Math.random() * 100)&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;if _x &lt;= 60&gt;&gt;
+  &lt;h3&gt;Success&lt;/h3&gt;
+  &#39;&#39;Surprisingly welcome&#39;&#39;
+  First, a Dauntless Temperance Campaigner with a hearty potato-soup for the convalescent. Next, an acquaintance with a bottle of decent wine. Finally, some lout with a bill, but you hide under the covers until they&#39;re gone.
+
+  Wounds is dropping… (-4 CP)
+  You&#39;ve gained 1 x Bottle of Morelways 1872
+  /* [The Airs of London change…] */
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-4&quot;&gt;&gt;
+    &lt;&lt;set $bottleOfMorelways1872 += 1&gt;&gt;
+    /* &lt;&lt;changePointsRange $theAirsOfLondon&gt;&gt; */
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;h3&gt;Failure&lt;/h3&gt;
+  &#39;&#39;An unending clatter on the stairs&#39;&#39;
+  How do they find you? These petitioners, creditors and so-called well-wishers? Hardly a moment to yourself. Your head pounds. But at least none of them make you get out of bed.
+
+  Wounds is dropping… (-3 CP)
+  /* [The Airs of London change…] */
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-3&quot;&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="7" name="A trip to the Flit" tags="" position="500,2250" size="100,100">A Raggedy Man, one of the Flit&#39;s beggars, will show you around if you bring something for the stew.
 
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;Off you go&#39;&#39;&#39;
@@ -274,7 +346,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
     &lt;&lt;changePoints $shadowy &quot;1&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
   &lt;&lt;set $discoveredTheFlit = 1&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Attend a Church Service" tags="" position="500,1100" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="8" name="Attend a Church Service" tags="" position="500,1550" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
 &#39;&#39;You may find your Scandal reduced a little.&#39;&#39;
 &lt;&lt;set _x to (Math.random() * 100)&gt;&gt;
 &lt;&lt;if _x &lt; 70&gt;&gt;
@@ -290,7 +362,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
   &lt;&lt;if $persuasive &lt; 200&gt;&gt;
     &lt;&lt;changePoints $persuasive &quot;1&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Attend to Matters of Danger and Wounds" tags="" position="350,500" size="100,100">Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="9" name="Attend to Matters of Danger and Wounds" tags="" position="350,925" size="100,100">Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
 &lt;&lt;nobr&gt;&gt;
 &lt;&lt;if $hardEarnedLesson &gt;= 5&gt;&gt;
   * [[The strength of scars]]
@@ -304,7 +376,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
 /* &lt;&lt;if $dangerous &gt;= 10 and $friend.wounds &gt;= 3&gt;&gt;
   [[Nurse a friend back to health]]
   [[Poison an acquaintance!]]
-&lt;&lt;/if&gt;&gt; */</tw-passagedata><tw-passagedata pid="10" name="Attend to Matters of Persuasion and Scandal" tags="" position="350,1100" size="100,100">Here you may find Persuasive pursuits, and opportunities to lower Scandal. You may also work with acquaintances for mutual benefit.
+&lt;&lt;/if&gt;&gt; */</tw-passagedata><tw-passagedata pid="10" name="Attend to Matters of Persuasion and Scandal" tags="" position="350,1550" size="100,100">Here you may find Persuasive pursuits, and opportunities to lower Scandal. You may also work with acquaintances for mutual benefit.
 &lt;&lt;nobr&gt;&gt;
 /* &lt;&lt;if $persuasive &gt;= 5&gt;&gt;
   * [[Meet someone for a Coffee at Caligula&#39;s]]
@@ -325,7 +397,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
 &lt;&lt;if $scandal &gt;= 3&gt;&gt;
   * [[Attend a Church Service]]
 &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Attend to Matters of Shadows and Suspicion" tags="" position="350,325" size="100,100">Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You may also work with acquaintances for mutual benefit.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="11" name="Attend to Matters of Shadows and Suspicion" tags="" position="350,725" size="100,100">Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You may also work with acquaintances for mutual benefit.
 &lt;&lt;nobr&gt;&gt;
 /* &lt;&lt;if $shadowy &gt;= 5&gt;&gt;
   * [[Invite someone to a spot of Suspicious Loitering]]
@@ -341,7 +413,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
   * [[Ask a friend to cover for you]]
   * [[Dupe a friend into covering for you]]
 &lt;&lt;/if&gt;&gt; */
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Attend to Matters of Society!" tags="" position="350,725" size="100,100">Earn Confident Smiles and other delights.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="12" name="Attend to Matters of Society!" tags="" position="350,1175" size="100,100">Earn Confident Smiles and other delights.
 &lt;&lt;nobr&gt;&gt;
   /* &lt;&lt;if $influence &lt; 91 and !$aquaintanceWith and $friend.influence &lt; 91 and !$friend.aquaintanceWith and !respondingToACallingCard&gt;&gt;
     * [[Send a Calling Card]]
@@ -361,7 +433,7 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
   &lt;&lt;nobr&gt;&gt;
     /* * [[A Reputation of Some Importance: Another Way (Fate)]] */
   &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Attend to Matters of Watchfulness and Nightmares" tags="" position="325,1250" size="100,100">Here you may find Watchful pursuits, and opportunities to lower Nightmares. You may also work with acquaintances for mutual benefit.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="13" name="Attend to Matters of Watchfulness and Nightmares" tags="" position="325,1700" size="100,100">Here you may find Watchful pursuits, and opportunities to lower Nightmares. You may also work with acquaintances for mutual benefit.
 &lt;&lt;nobr&gt;&gt;
   &lt;&lt;if $suddenInsight &gt;= 5 and $watchful &lt; 230&gt;&gt;
     * [[Every stone]]
@@ -370,10 +442,94 @@ An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
 &lt;&lt;nobr&gt;&gt;
   /* * [[Assist your friend with their Nightmares]]
   * [[Make scientific study of your friend&#39;s Nightmares]] */
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="A visit from the Regretful Soldier" tags="" position="475,225" size="100,100"></tw-passagedata><tw-passagedata pid="15" name="A visit from the Repentant Forger" tags="" position="600,225" size="100,100"></tw-passagedata><tw-passagedata pid="16" name="A visit from the Sardonic Music-Hall Singer" tags="" position="725,225" size="100,100"></tw-passagedata><tw-passagedata pid="17" name="A visit from the Wry Functionary" tags="" position="850,225" size="100,100"></tw-passagedata><tw-passagedata pid="18" name="Correspond with a contact at the Shuttered Palace" tags="" position="350,900" size="100,100">You met a Wry Functionary at the Ambassador&#39;s Ball. You could cultivate this relationship.
-* [[Write a letter]]</tw-passagedata><tw-passagedata pid="19" name="Curled up with a book" tags="" position="1100,225" size="100,100"></tw-passagedata><tw-passagedata pid="20" name="Dealing with the Colonel" tags="" position="350,2025" size="100,100">A Disgruntled Colonel is writing his memoirs...
-* [[Where the bodies are buried]]</tw-passagedata><tw-passagedata pid="21" name="Debug Panel" tags="" position="150,1350" size="100,100">come here to run the code
-&lt;&lt;set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Employ the services of the Clay Corroborator" tags="" position="525,1300" size="100,100">You could not &lt;em&gt;possibly&lt;/em&gt; be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="14" name="A visit from the Regretful Soldier" tags="" position="675,475" size="100,100">&quot;Let&#39;s take a look at you!&quot;
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;Battlefield medicine&#39;&#39;
+The Soldier learnt his doctoring in the swamps of Hell. His skills are rough-and-ready. But his hands are deft and surprisingly gentle.
+Wounds is dropping… (-6 CP)
+/* [The Airs of London change…] */
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;changePoints $wounds &quot;-6&quot;&gt;&gt;
+  /* &lt;&lt;changePointsRange $theAirsOfLondon&gt;&gt; */
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="15" name="A visit from the Repentant Forger" tags="" position="675,1150" size="100,100">&quot;I brought a little something to cheer you up.&quot;
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;Does your nose really look like that?&#39;&#39;
+He&#39;s sketched a caricature of you on a slab of jade. He leaves it by your bedside as you chat. He&#39;s a little melancholy, and he doesn&#39;t do much to lift your spirits, but you sense he&#39;s glad of the company.
+
+You&#39;ve gained 50 x Jade Fragment
+Wounds is dropping…
+Seeing through the Eyes of Icarus is increasing…
+/* [The Airs of London change…] */
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set $jadeFragment += 50&gt;&gt;
+  &lt;&lt;changePoints $wounds &quot;-3&quot;&gt;&gt;
+  &lt;&lt;changePoints $seeingThroughTheEyesOfIcarus &quot;1&quot;&gt;&gt;
+  /* &lt;&lt;changePointsRange $theAirsOfLondon&gt;&gt; */
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="16" name="A visit from the Sardonic Music-Hall Singer" tags="" position="675,550" size="100,100">&quot;Are you really supposed to be ill? Sweetheart, I&#39;m not impressed.&quot;
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;A troublesome visitor&#39;&#39;
+She moves restlessly […] fiddling with all the possessions you might have asked her not to touch. Her bedside manner is brisk, at best. You don&#39;t get much rest. But it&#39;s hard to stay glum when she&#39;s in the room. And she always brings a bottle.
+
+You&#39;ve gained 1 x Bottle of Strangling Willow Absinthe
+Nightmares is dropping… 
+/* [The Airs of London change…] */
+Wounds is dropping…
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set $bottleOfStranglingWillowAbsinthe += 1&gt;&gt;
+  &lt;&lt;changePoints $nightmares &quot;-3&quot;&gt;&gt;
+  &lt;&lt;changePoints $wounds &quot;-1&quot;&gt;&gt;
+  /* [The Airs of London change…] */
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="17" name="A visit from the Wry Functionary" tags="" position="675,1075" size="100,100">&quot;I had business at the Bazaar, and you were on my way. More or less.&quot;
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;In gossipy mood&#39;&#39;
+He&#39;s unusually talkative: perhaps it&#39;s the air outside the Palace that&#39;s loosened his tongue. He certainly seems more relaxed. At one point, you almost think he intends to loosen his tie.
+
+You&#39;ve gained 2 x Intriguing Snippet
+You&#39;ve gained 1 x Scrap of Incendiary Gossip
+Wounds is dropping…
+/* [The Airs of London change…] */
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set $intriguingSnippet += 2&gt;&gt;
+  &lt;&lt;set $scrapOfIncendiaryGossip += 1&gt;&gt;
+  &lt;&lt;changePoints $wounds &quot;-3&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="18" name="Correspond with a contact at the Shuttered Palace" tags="" position="350,1350" size="100,100">You met a Wry Functionary at the Ambassador&#39;s Ball. You could cultivate this relationship.
+* [[Write a letter]]</tw-passagedata><tw-passagedata pid="19" name="Curled up with a book" tags="" position="675,625" size="100,100">Quite the read, this one.
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set _x to (Math.random() * 100)&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;
+&lt;&lt;if _x &lt;= 60&gt;&gt;
+  &lt;h3&gt;Success&lt;/h3&gt;
+  &#39;&#39;Guilty pleasures&#39;&#39;
+  You could reasonably describe this slim volume as &#39;titillating&#39;. Perhaps also &#39;arresting&#39;. Certainly &#39;eye-opening.&#39; It makes the time pass rather faster, and your undignified sniggering goes unremarked in the privacy of your bedroom.
+
+  Wounds is dropping…
+  Nightmares is dropping…
+  /* [The Airs of London change…] */
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-5&quot;&gt;&gt;
+    &lt;&lt;changePoints $nightmares &quot;-2&quot;&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  &lt;h3&gt;Failure&lt;/h3&gt;
+  &#39;&#39;Not exactly light reading&#39;&#39;
+  Halfway through, you quietly close the book and settle back on to your bolster. Some matters should be reserved for when one is in better fettle.
+
+  Wounds is dropping… (-3 CP)
+  Nightmares is increasing… (+1 CP)
+  You&#39;ve gained 2 x Appalling Secret
+  /* [The Airs of London change…] */
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;changePoints $wounds &quot;-3&quot;&gt;&gt;
+    &lt;&lt;changePoints $nightmares &quot;1&quot;&gt;&gt;
+    &lt;&lt;set $appallingSecret += 2&gt;&gt;
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="20" name="Dealing with the Colonel" tags="" position="350,2475" size="100,100">A Disgruntled Colonel is writing his memoirs...
+* [[Where the bodies are buried]]</tw-passagedata><tw-passagedata pid="21" name="Debug Panel" tags="" position="150,1700" size="100,100">come here to run the code
+&lt;&lt;set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5&gt;&gt;</tw-passagedata><tw-passagedata pid="22" name="Employ the services of the Clay Corroborator" tags="" position="525,1750" size="100,100">You could not &lt;em&gt;possibly&lt;/em&gt; be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;Alibis for days&#39;&#39;
 The Clay man is [...] thorough. He was [...] with you all day yesterday. And [...] the day before. And, it transpires, all week. He produces receipts, corroborating your whereabouts [...]
@@ -418,7 +574,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 
 
 
-&lt;!-- :: Invite someone to a spot of Suspicious Loitering {&quot;position&quot;:&quot;500,400&quot;} --&gt;</tw-passagedata><tw-passagedata pid="23" name="Lay a false trail" tags="" position="500,1500" size="100,100">The truth is drab and grey, and involves you going to prison. Better the Constables have a series of lies to interpret.
+&lt;!-- :: Invite someone to a spot of Suspicious Loitering {&quot;position&quot;:&quot;500,400&quot;} --&gt;</tw-passagedata><tw-passagedata pid="23" name="Lay a false trail" tags="" position="500,1950" size="100,100">The truth is drab and grey, and involves you going to prison. Better the Constables have a series of lies to interpret.
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;He he he&#39;&#39;
 Why did the robber stack vases in the victim&#39;s privy? What does the scrawl of &#39;MONSTROUS ARE THOSE WHO WILL NOT WITHIN&#39; on the mirror mean? And why all the folded paper swans?
@@ -427,7 +583,7 @@ Why did the robber stack vases in the victim&#39;s privy? What does the scrawl o
 &lt;&lt;nobr&gt;&gt;
   &lt;&lt;changePoints $suspicion &quot;-3&quot;&gt;&gt;
   &lt;&lt;changePoints $countingTheDays &quot;5&quot;&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Make sure nobody is telling tales" tags="" position="500,1600" size="100,100">If you&#39;re the sort that is unlikely to ever be a member of the Parthenaeum, you could throw your weight about in the underworld.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="Make sure nobody is telling tales" tags="" position="500,2050" size="100,100">If you&#39;re the sort that is unlikely to ever be a member of the Parthenaeum, you could throw your weight about in the underworld.
 &lt;h3&gt;Success&gt;
 &#39;&#39;An inconvenient fad&#39;&#39;
 Your knuckles are bruised – this fashion for iron hats among the youth will be the death of someone. But you&#39;re sure nobody is going to be talking to the Constables about you for a while.
@@ -441,7 +597,7 @@ Your knuckles are bruised – this fashion for iron hats among the youth will be
 
 
 
-&lt;!-- :: Nurse a friend back to health {&quot;position&quot;:&quot;450,525&quot;} --&gt;</tw-passagedata><tw-passagedata pid="25" name="Official incompetence" tags="" position="500,1675" size="100,100">A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
+&lt;!-- :: Nurse a friend back to health {&quot;position&quot;:&quot;450,525&quot;} --&gt;</tw-passagedata><tw-passagedata pid="25" name="Official incompetence" tags="" position="500,2125" size="100,100">A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
 &#39;&#39;This will help you with Suspicion.&#39;&#39;
 &lt;h1&gt;Success&lt;/h1&gt;
 &#39;&#39;A pleasing piece of luck&#39;&#39;
@@ -451,7 +607,7 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
 &lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $stolenCorrespondence =+ 1&gt;&gt;
   &lt;&lt;changePoints $suspicion &quot;-2&quot;&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Opportunity Deck" tags="" position="175,1725" size="100,100">&lt;&lt;if $location == &quot;Fallen London&quot;&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Opportunity Deck" tags="" position="175,2175" size="100,100">&lt;&lt;if $location == &quot;Fallen London&quot;&gt;&gt;
 	&lt;&lt;if $suspicion == 2&gt;&gt;
     * [[The Law&#39;s Long Arm]]
   &lt;&lt;/if&gt;&gt;
@@ -480,7 +636,7 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
 
 
 
-/* :: Sort through incoming mail {&quot;position&quot;:&quot;500,925&quot;} */</tw-passagedata><tw-passagedata pid="27" name="Spend a day in bed" tags="" position="850,350" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Start" tags="" position="0,0" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="StoryInit" tags="" position="100,0" size="100,100">&lt;&lt;set
+/* :: Sort through incoming mail {&quot;position&quot;:&quot;500,925&quot;} */</tw-passagedata><tw-passagedata pid="27" name="Spend a day in bed" tags="" position="675,1000" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Start" tags="" position="675,700" size="100,100"></tw-passagedata><tw-passagedata pid="29" name="StoryInit" tags="" position="100,0" size="100,100">&lt;&lt;set
   $aBadEnd to 1,
   $aeolianScream to 24,
   $amanitaSherry to 42,
@@ -652,9 +808,9 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
   $wounds to 1,
   $zeeZtory to 56
 &gt;&gt;
-&lt;&lt;set $friend to null&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="StoryMenu" tags="header" position="0,1350" size="100,100">[[Opportunity Deck]]
+&lt;&lt;set $friend to null&gt;&gt;</tw-passagedata><tw-passagedata pid="30" name="StoryMenu" tags="header" position="0,1700" size="100,100">[[Opportunity Deck]]
 [[Your Social Engagements]]
-[[Debug Panel]]</tw-passagedata><tw-passagedata pid="31" name="Surface-dreams" tags="" position="100,475" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="The Law&#39;s Long Arm" tags="" position="350,1475" size="100,100">Are those Constables following you? Were you careless? Has someone&#39;s nerve broken? Best deal with it.
+[[Debug Panel]]</tw-passagedata><tw-passagedata pid="31" name="Surface-dreams" tags="" position="675,925" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="The Law&#39;s Long Arm" tags="" position="350,1925" size="100,100">Are those Constables following you? Were you careless? Has someone&#39;s nerve broken? Best deal with it.
 * [[Official incompetence]]
 &lt;&lt;if $spendingSecrets &gt;= 4&gt;&gt;
   &lt;&lt;if $countingTheDays &lt; 6&gt;&gt;
@@ -671,7 +827,7 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $penny &gt;= 100 and $clayCorroborator not null&gt;&gt;
   * [[Employ the services of the Clay Corroborator]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="The Ways of the Flit" tags="" position="350,1850" size="100,100">Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="33" name="The Ways of the Flit" tags="" position="350,2300" size="100,100">Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
 &lt;&lt;if !$routeTheFlit&gt;&gt;
   &lt;&lt;nobr&gt;&gt;
     &lt;&lt;if $ratOnAString &gt;= 20&gt;&gt;
@@ -684,7 +840,7 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
 &lt;&lt;/if&gt;&gt;
 
 
-/* :: The rewards of correspondence {&quot;position&quot;:&quot;675,1300&quot;,&quot;size&quot;:&quot;100,100&quot;} */</tw-passagedata><tw-passagedata pid="34" name="The red herald" tags="" position="475,475" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="The strength of scars" tags="" position="500,550" size="100,100">Older, tougher, stronger, like a tree-root or a grizzled ape.
+/* :: The rewards of correspondence {&quot;position&quot;:&quot;675,1300&quot;,&quot;size&quot;:&quot;100,100&quot;} */</tw-passagedata><tw-passagedata pid="34" name="The red herald" tags="" position="675,775" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="The strength of scars" tags="" position="500,1000" size="100,100">Older, tougher, stronger, like a tree-root or a grizzled ape.
 &#39;&#39;This will increase your Dangerous by an uncertain but significant amount, at the price of five Hard-Earned Lessons.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;Stand aside!&#39;&#39;
@@ -710,7 +866,7 @@ Seasoned veteran coming through!
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $hardEarnedLesson -= 5&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Time in Bed" tags="" position="500,450" size="100,100">You&#39;ve taken a battering lately. Perhaps you should take some time to convalesce. You don&#39;t want to end up wrapped permanently in tomb-colonist bandages.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="Time in Bed" tags="" position="525,850" size="100,100">You&#39;ve taken a battering lately. Perhaps you should take some time to convalesce. You don&#39;t want to end up wrapped permanently in tomb-colonist bandages.
 
 Some of these options will also reduce Nightmares
 &lt;&lt;if $theAirsOfLondon &lt;= 24&gt;&gt;
@@ -746,7 +902,7 @@ Some of these options will also reduce Nightmares
 &lt;&lt;if $theAirsOfLondon &gt;= 90 and $theAirsOfLondon &lt;= 100&gt;&gt;
   * [[A dreamless sleep]]
 &lt;&lt;/if&gt;&gt;
-/* &lt;&lt;if $fate &gt;= 8&gt;&gt; */</tw-passagedata><tw-passagedata pid="37" name="Tricks traps and treats" tags="" position="500,325" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Unleash Baseborn &amp; Fowlingpiece" tags="" position="500,1425" size="100,100">The Neath&#39;s most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
+/* &lt;&lt;if $fate &gt;= 8&gt;&gt; */</tw-passagedata><tw-passagedata pid="37" name="Tricks traps and treats" tags="" position="500,725" size="100,100"></tw-passagedata><tw-passagedata pid="38" name="Unleash Baseborn &amp; Fowlingpiece" tags="" position="500,1875" size="100,100">The Neath&#39;s most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
 
 &lt;h1&gt;Success&lt;/h1&gt;
 &#39;&#39;Expensive, but worth it&#39;&#39;
@@ -759,7 +915,7 @@ Some of these options will also reduce Nightmares
 
 Counting the Days is increasing…
 You&#39;ve lost 10 x Infernal Contract
-Suspicion is dropping…</tw-passagedata><tw-passagedata pid="39" name="Use someone as your dupe" tags="" position="500,1025" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="Use your influence to invite Slowcake&#39;s Amanuensis for a visit" tags="" position="500,675" size="100,100"></tw-passagedata><tw-passagedata pid="41" name="Visions in the mirror" tags="" position="100,600" size="100,100"></tw-passagedata><tw-passagedata pid="42" name="Where the bodies are buried" tags="" position="500,2025" size="100,100"></tw-passagedata><tw-passagedata pid="43" name="Write a letter" tags="" position="500,900" size="100,100"></tw-passagedata><tw-passagedata pid="44" name="Write down a beloved family recipe" tags="" position="675,1375" size="100,100"></tw-passagedata><tw-passagedata pid="45" name="Write down some favoured fighting techniques" tags="" position="675,1225" size="100,100"></tw-passagedata><tw-passagedata pid="46" name="Your Social Engagements" tags="" position="175,1000" size="100,100">&lt;&lt;nobr&gt;&gt;
+Suspicion is dropping…</tw-passagedata><tw-passagedata pid="39" name="Use someone as your dupe" tags="" position="500,1475" size="100,100"></tw-passagedata><tw-passagedata pid="40" name="Use your influence to invite Slowcake&#39;s Amanuensis for a visit" tags="" position="500,1125" size="100,100"></tw-passagedata><tw-passagedata pid="41" name="Visions in the mirror" tags="" position="675,850" size="100,100"></tw-passagedata><tw-passagedata pid="42" name="Where the bodies are buried" tags="" position="500,2475" size="100,100"></tw-passagedata><tw-passagedata pid="43" name="Write a letter" tags="" position="500,1350" size="100,100"></tw-passagedata><tw-passagedata pid="44" name="Write down a beloved family recipe" tags="" position="675,1825" size="100,100"></tw-passagedata><tw-passagedata pid="45" name="Write down some favoured fighting techniques" tags="" position="675,1675" size="100,100"></tw-passagedata><tw-passagedata pid="46" name="Your Social Engagements" tags="" position="175,1225" size="100,100">&lt;&lt;nobr&gt;&gt;
 &lt;!-- * [[Epistolary Matters]] --&gt;
 * [[Attend to Matters of Society!]]
 &lt;&lt;/nobr&gt;&gt;
