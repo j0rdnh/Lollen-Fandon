@@ -12,7 +12,7 @@ Lollen Fandon
 }
 
 
-:: A disturbance outside {"position":"675,1325"}
+:: A disturbance outside {"position":"675,1300"}
 ''Action Cost: 3''
 Someone is shouting, probably at someone else. That's how it usually works.
 <<nobr>>
@@ -47,8 +47,22 @@ Someone is shouting, probably at someone else. That's how it usually works.
 <</if>>
 
 
-:: A dreamless sleep {"position":"675,425"}
+:: A dreamless sleep {"position":"675,400"}
+''Action Cost: 3''
+Candles sink low. Gas-lamps burn pale. Footsteps are hushed. Even the rats have ceased to scurry.
 
+<h3>Success</h3>
+''The arms of Morpheus''
+You awake refreshed, invigorated. A rasher gentleman might even leap from bed. You reserve your energies. But matters have improved.
+
+Wounds is dropping…
+Nightmares is dropping…
+[The Airs of London change…]
+<<nobr>>
+  <<changePoints $wounds "-7">>
+  <<changePoints $nightmares "-2">>
+  <<set $theAirsOfLondon to 0>>
+<</nobr>>
 
 
 :: An easy confidence {"position":"500,1625"}
@@ -118,7 +132,7 @@ Londoners will be informed of your brilliance.
 <</nobr>>
 
 
-:: A succession of visitors {"position":"675,1250"}
+:: A succession of visitors {"position":"675,1225"}
 
 
 
@@ -163,7 +177,7 @@ An honest change of heart? Or just the tribute paid by vice to virtue?
 <</if>>
 
 
-:: Attend to Matters of Danger and Wounds {"position":"350,950"}
+:: Attend to Matters of Danger and Wounds {"position":"350,925"}
 Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 <<if $hardEarnedLesson >= 5>>
@@ -206,7 +220,7 @@ Here you may find Persuasive pursuits, and opportunities to lower Scandal. You m
 <</nobr>>
 
 
-:: Attend to Matters of Shadows and Suspicion {"position":"350,750"}
+:: Attend to Matters of Shadows and Suspicion {"position":"350,725"}
 Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 /* <<if $shadowy >= 5>>
@@ -263,19 +277,19 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 <</nobr>>
 
 
-:: A visit from the Regretful Soldier {"position":"675,500"}
+:: A visit from the Regretful Soldier {"position":"675,475"}
 
 
 
-:: A visit from the Repentant Forger {"position":"675,1175"}
+:: A visit from the Repentant Forger {"position":"675,1150"}
 
 
 
-:: A visit from the Sardonic Music-Hall Singer {"position":"675,575"}
+:: A visit from the Sardonic Music-Hall Singer {"position":"675,550"}
 
 
 
-:: A visit from the Wry Functionary {"position":"675,1100"}
+:: A visit from the Wry Functionary {"position":"675,1075"}
 
 
 
@@ -284,7 +298,7 @@ You met a Wry Functionary at the Ambassador's Ball. You could cultivate this rel
 * [[Write a letter]]
 
 
-:: Curled up with a book {"position":"675,650"}
+:: Curled up with a book {"position":"675,625"}
 
 
 
@@ -293,7 +307,7 @@ A Disgruntled Colonel is writing his memoirs...
 * [[Where the bodies are buried]]
 
 
-:: Debug Panel {"position":"150,1800"}
+:: Debug Panel {"position":"150,1700"}
 come here to run the code
 <<set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5>>
 
@@ -425,11 +439,11 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
 
-:: Spend a day in bed {"position":"675,1025"}
+:: Spend a day in bed {"position":"675,1000"}
 
 
 
-:: Start {"position":"675,725"}
+:: Start {"position":"675,700"}
 
 
 
@@ -609,13 +623,13 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 <<set $friend to null>>
 
 
-:: StoryMenu [header] {"position":"0,1800"}
+:: StoryMenu [header] {"position":"0,1700"}
 [[Opportunity Deck]]
 [[Your Social Engagements]]
 [[Debug Panel]]
 
 
-:: Surface-dreams {"position":"675,950"}
+:: Surface-dreams {"position":"675,925"}
 
 
 
@@ -658,7 +672,7 @@ Swaying ropes above the streets. A home to beggars, revolutionaries and the forg
 
 
 
-:: The red herald {"position":"675,800"}
+:: The red herald {"position":"675,775"}
 
 
 
@@ -692,7 +706,7 @@ Seasoned veteran coming through!
 <</nobr>>
 
 
-:: Time in Bed {"position":"525,875"}
+:: Time in Bed {"position":"525,850"}
 You've taken a battering lately. Perhaps you should take some time to convalesce. You don't want to end up wrapped permanently in tomb-colonist bandages.
 
 Some of these options will also reduce Nightmares
@@ -732,7 +746,7 @@ Some of these options will also reduce Nightmares
 /* <<if $fate >= 8>> */
   
 
-:: Tricks traps and treats {"position":"500,750"}
+:: Tricks traps and treats {"position":"500,725"}
 
 
 
@@ -761,7 +775,7 @@ Suspicion is dropping…
 
 
 
-:: Visions in the mirror {"position":"675,875"}
+:: Visions in the mirror {"position":"675,850"}
 
 
 
@@ -781,7 +795,7 @@ Suspicion is dropping…
 
 
 
-:: Your Social Engagements {"position":"175,1450"}
+:: Your Social Engagements {"position":"175,1225"}
 <<nobr>>
 <!-- * [[Epistolary Matters]] -->
 * [[Attend to Matters of Society!]]
