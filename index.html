@@ -217,7 +217,24 @@ Londoners will be informed of your brilliance.
   &lt;&lt;option &quot;An Extraordinary Mind&quot;&gt;&gt;
 &lt;&lt;/listbox&gt;&gt;
 &lt;&lt;set $notability -= 12&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="A trip to the Flit" tags="" position="500,1800" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="An easy confidence" tags="" position="500,1175" size="100,100">You&#39;re better than you thought.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="A trip to the Flit" tags="" position="500,1800" size="100,100">A Raggedy Man, one of the Flit&#39;s beggars, will show you around if you bring something for the stew.
+
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;Off you go&#39;&#39;&#39;
+The Raggedy Man keeps an eye on the rat-sack as you climb. Twice he warns you against dropping it. The Flit is a hungry place.
+&#39;&#39;You&#39;re heading to The Flit. When you leave, you won&#39;t be able to return unless you open up the route at your lodgings or find another Raggedy Man like this one. The Flit is most interesting for those who have Shadowy 60+.&#39;&#39;
+
+You have moved to a new area: The Flit
+You&#39;ve lost 20 x Rat on a String
+Shadowy is increasing…
+An occurrence! Your &#39;Discovered: the Flit&#39; Quality is now 1!
+&lt;&lt;nobr&gt;&gt;
+  &lt;&lt;set $location to &quot;The Flit&quot;&gt;&gt;
+  &lt;&lt;if $shadowy &lt; 200&gt;&gt;
+    &lt;&lt;changePoints $shadowy &quot;1&quot;&gt;&gt;
+  &lt;&lt;/if&gt;&gt;
+  &lt;&lt;set $discoveredTheFlit = 1&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="An easy confidence" tags="" position="500,1175" size="100,100">You&#39;re better than you thought.
 &#39;&#39;This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;A flashed half-smile&#39;&#39;
@@ -270,7 +287,7 @@ They turn and look when you pass. Oh yes they do.
   &#39;&#39;An uplifting but unprofitable hour&#39;&#39;
   Other churchgoers frown and tut, and the vicar makes unflattering mention of you in his sermon. Still, several of the congregation are attractive enough that you don&#39;t feel your time was entirely wasted.
   &lt;&lt;changePoints $scandal &quot;1&quot;&gt;&gt;
-  &lt;&lt;if $persuasive&lt;200&gt;&gt;
+  &lt;&lt;if $persuasive &lt; 200&gt;&gt;
     &lt;&lt;changePoints $persuasive &quot;1&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="Attend to Matters of Danger and Wounds" tags="" position="350,500" size="100,100">Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
