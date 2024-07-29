@@ -133,7 +133,34 @@ Londoners will be informed of your brilliance.
 
 
 :: A succession of visitors {"position":"675,1225"}
+You'd like to take the day off, but they will keep knocking.
+<<nobr>>
+  <<set _x to (Math.random() * 100)>>
+<</nobr>>
+<<if _x <= 60>>
+  <h3>Success</h3>
+  ''Surprisingly welcome''
+  First, a Dauntless Temperance Campaigner with a hearty potato-soup for the convalescent. Next, an acquaintance with a bottle of decent wine. Finally, some lout with a bill, but you hide under the covers until they're gone.
 
+  Wounds is dropping… (-4 CP)
+  You've gained 1 x Bottle of Morelways 1872
+  /* [The Airs of London change…] */
+  <<nobr>>
+    <<changePoints $wounds "-4">>
+    <<set $bottleOfMorelways1872 += 1>>
+    /* <<changePointsRange $theAirsOfLondon>> */
+  <</nobr>>
+<<else>>
+  <h3>Failure</h3>
+  ''An unending clatter on the stairs''
+  How do they find you? These petitioners, creditors and so-called well-wishers? Hardly a moment to yourself. Your head pounds. But at least none of them make you get out of bed.
+
+  Wounds is dropping… (-3 CP)
+  /* [The Airs of London change…] */
+  <<nobr>>
+    <<changePoints $wounds "-3">>
+  <</nobr>>
+<</if>>
 
 
 :: A trip to the Flit {"position":"500,2250"}
