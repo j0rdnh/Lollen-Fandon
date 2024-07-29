@@ -338,7 +338,22 @@ Seeing through the Eyes of Icarus is increasing…
 
 
 :: A visit from the Sardonic Music-Hall Singer {"position":"675,550"}
+"Are you really supposed to be ill? Sweetheart, I'm not impressed."
 
+<h3>Success</h3>
+''A troublesome visitor''
+She moves restlessly […] fiddling with all the possessions you might have asked her not to touch. Her bedside manner is brisk, at best. You don't get much rest. But it's hard to stay glum when she's in the room. And she always brings a bottle.
+
+You've gained 1 x Bottle of Strangling Willow Absinthe
+Nightmares is dropping… 
+/* [The Airs of London change…] */
+Wounds is dropping…
+<<nobr>>
+  <<set $bottleOfStranglingWillowAbsinthe += 1>>
+  <<changePoints $nightmares "-3">>
+  <<changePoints $wounds "-1">>
+  /* [The Airs of London change…] */
+<</nobr>>
 
 
 :: A visit from the Wry Functionary {"position":"675,1075"}
