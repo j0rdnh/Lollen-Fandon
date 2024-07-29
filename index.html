@@ -114,7 +114,7 @@ ul > ul { list-style-type: '✴︎  '; }
 
 ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.probability = function (scaler, qualityLevel, difficultyLevel) {
 	let prob = scaler * qualityLevel / difficultyLevel;
-  	let prob = Math.floor(prob);
+  	prob = Math.floor(prob);
   	let probTry = Math.random() * 100;
   	if (probTry > prob) {
     	return false;
