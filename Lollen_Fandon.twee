@@ -57,7 +57,7 @@ They turn and look when you pass. Oh yes they do.
 
 :: An old street sign {"position":"500,1900","size":"100,100"}
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
-<<set _proba to probability(60, $shadowy, 70)>>
+<<set _proba to setup.probability(60, $shadowy, 70)>>
 <<if _proba is true>>
   <h3>Success</h3>
   ''Quick and lucky and wise''
