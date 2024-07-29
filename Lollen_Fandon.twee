@@ -305,7 +305,17 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 
 
 :: A visit from the Regretful Soldier {"position":"675,475"}
+"Let's take a look at you!"
 
+<h3>Success</h3>
+''Battlefield medicine''
+The Soldier learnt his doctoring in the swamps of Hell. His skills are rough-and-ready. But his hands are deft and surprisingly gentle.
+Wounds is dropping… (-6 CP)
+/* [The Airs of London change…] */
+<<nobr>>
+  <<changePoints $wounds "-6">>
+  /* <<changePointsRange $theAirsOfLondon>> */
+<</nobr>>
 
 
 :: A visit from the Repentant Forger {"position":"675,1150"}
