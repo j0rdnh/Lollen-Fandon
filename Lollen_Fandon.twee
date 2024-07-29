@@ -741,7 +741,7 @@ Suspicion is dropping…
 :: StoryScript [script]
 setup.probability = function (scaler, qualityLevel, difficultyLevel) {
 	let prob = scaler * qualityLevel / difficultyLevel;
-  	let prob = Math.floor(prob);
+  	prob = Math.floor(prob);
   	let probTry = Math.random() * 100;
   	if (probTry > prob) {
     	return false;
