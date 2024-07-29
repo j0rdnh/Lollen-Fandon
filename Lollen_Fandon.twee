@@ -380,6 +380,37 @@ You met a Wry Functionary at the Ambassador's Ball. You could cultivate this rel
 
 
 :: Curled up with a book {"position":"675,625"}
+Quite the read, this one.
+<<nobr>>
+  <<set _x to (Math.random() * 100)>>
+<</nobr>>
+<<if _x <= 60>>
+  <h3>Success</h3>
+  ''Guilty pleasures''
+  You could reasonably describe this slim volume as 'titillating'. Perhaps also 'arresting'. Certainly 'eye-opening.' It makes the time pass rather faster, and your undignified sniggering goes unremarked in the privacy of your bedroom.
+
+  Wounds is dropping…
+  Nightmares is dropping…
+  /* [The Airs of London change…] */
+  <<nobr>>
+    <<changePoints $wounds "-5">>
+    <<changePoints $nightmares "-2">>
+  <</nobr>>
+<<else>>
+  <h3>Failure</h3>
+  ''Not exactly light reading''
+  Halfway through, you quietly close the book and settle back on to your bolster. Some matters should be reserved for when one is in better fettle.
+
+  Wounds is dropping… (-3 CP)
+  Nightmares is increasing… (+1 CP)
+  You've gained 2 x Appalling Secret
+  /* [The Airs of London change…] */
+  <<nobr>>
+    <<changePoints $wounds "-3">>
+    <<changePoints $nightmares "1">>
+    <<set $appallingSecret += 2>>
+  <</nobr>>
+<</if>>
 
 
 
