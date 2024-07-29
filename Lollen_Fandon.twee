@@ -727,16 +727,6 @@ setup.probability = function (scaler, qualityLevel, difficultyLevel) {
       return true;
     };
 };
-window.probability = function (scaler, qualityLevel, difficultyLevel) {
-	let prob = scaler * qualityLevel / difficultyLevel;
-  	let prob = Math.floor(prob);
-  	let probTry = Math.random() * 100;
-  	if (probTry > prob) {
-    	return false;
-    } else {
-      return true;
-    };
-};
 
 
 :: StoryStylesheet [stylesheet]
