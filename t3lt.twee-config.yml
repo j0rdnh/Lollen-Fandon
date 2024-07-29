@@ -4,5 +4,6 @@ sugarcube-2:
       name: changePoints
     changePointsRange:
       name: changePointsRange
-    probability:
-      name: probability
+    function:
+      container: yes
+      name: function

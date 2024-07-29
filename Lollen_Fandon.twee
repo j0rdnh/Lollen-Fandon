@@ -827,7 +827,7 @@ Some of these options will also reduce Nightmares
   <<if $acquaintanceTheRepentantForger >= 5>>
     * [[A visit from the Repentant Forger]]
   <</if>>
-<<else if $theAirsOfLondon >= 25 and $theAirsOfLondon <= 49>>
+<<elseif $theAirsOfLondon >= 25 and $theAirsOfLondon <= 49>>
   * [[A succession of visitors]]
   <<if $journalOfInfamy >= 1>>
     * [[Curled up with a book]]
@@ -835,7 +835,7 @@ Some of these options will also reduce Nightmares
   <<if $acquaintanceTheSardonicMusicHallSinger >= 5>>
     * [[A visit from the Sardonic Music-Hall Singer]]
   <</if>>
-<<else if $theAirsOfLondon >= 50 and $theAirsOfLondon <= 74>>
+<<elseif $theAirsOfLondon >= 50 and $theAirsOfLondon <= 74>>
   * [[A disturbance outside]]
   <<if $touchedByFingerwork >= 5>>
     * [[Visions in the mirror]]
@@ -843,7 +843,7 @@ Some of these options will also reduce Nightmares
   <<if $acquaintanceTheRegretfulSoldier >= 5>>
     * [[A visit from the Regretful Soldier]]
   <</if>>
-<<else if $theAirsOfLondon >= 75 and $theAirsOfLondon <= 99>>
+<<elseif $theAirsOfLondon >= 75 and $theAirsOfLondon <= 99>>
   * [[The red herald]]
   <<if $visionsOfTheSurface >= 1>>
     * [[Surface-dreams]]
