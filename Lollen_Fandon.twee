@@ -357,7 +357,21 @@ Wounds is dropping…
 
 
 :: A visit from the Wry Functionary {"position":"675,1075"}
+"I had business at the Bazaar, and you were on my way. More or less."
 
+<h3>Success</h3>
+''In gossipy mood''
+He's unusually talkative: perhaps it's the air outside the Palace that's loosened his tongue. He certainly seems more relaxed. At one point, you almost think he intends to loosen his tie.
+
+You've gained 2 x Intriguing Snippet
+You've gained 1 x Scrap of Incendiary Gossip
+Wounds is dropping…
+/* [The Airs of London change…] */
+<<nobr>>
+  <<set $intriguingSnippet += 2>>
+  <<set $scrapOfIncendiaryGossip += 1>>
+  <<changePoints $wounds "-3">>
+<</nobr>>
 
 
 :: Correspond with a contact at the Shuttered Palace {"position":"350,1350"}
