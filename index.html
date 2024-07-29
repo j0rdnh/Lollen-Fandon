@@ -112,7 +112,41 @@ ul { list-style-type: '✼  '; }
 
 ul > ul { list-style-type: '✴︎  '; }
 
-ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="An easy confidence" tags="" position="500,1175" size="100,100">You&#39;re better than you thought.
+ul > ul > ul { list-style-type: '✹  '; }</style><script role="script" id="twine-user-script" type="text/twine-javascript">setup.probability = function (scaler, qualityLevel, difficultyLevel) {
+	let prob = scaler * qualityLevel / difficultyLevel;
+  	let prob = Math.floor(prob);
+  	let probTry = Math.random() * 100;
+  	if (probTry > prob) {
+    	return false;
+    } else {
+      return true;
+    };
+};
+window.probability = function (scaler, qualityLevel, difficultyLevel) {
+	let prob = scaler * qualityLevel / difficultyLevel;
+  	let prob = Math.floor(prob);
+  	let probTry = Math.random() * 100;
+  	if (probTry > prob) {
+    	return false;
+    } else {
+      return true;
+    };
+};</script><tw-passagedata pid="1" name="A Reputation of Some Importance: Another Way" tags="" position="500,775" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+&#39;&#39;This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London&#39;s Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.&#39;&#39;
+&lt;h3&gt;Success&lt;/h3&gt;
+&#39;&#39;The way ahead is clear&#39;&#39;&#39;
+Londoners will be informed of your brilliance.
+* You have a new Accomplishment... A Person of Some Importance
+* You&#39;ve lost 12 x Notability
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;listbox $aPersonOfSomeImportance&gt;&gt;
+  &lt;&lt;option &quot;A Shattering Force&quot;&gt;&gt;
+  &lt;&lt;option &quot;A Legendary Charisma&quot;&gt;&gt;
+  &lt;&lt;option &quot;An Invisible Eminence&quot;&gt;&gt;
+  &lt;&lt;option &quot;An Extraordinary Mind&quot;&gt;&gt;
+&lt;&lt;/listbox&gt;&gt;
+&lt;&lt;set $notability -= 12&gt;&gt;
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="A trip to the Flit" tags="" position="500,1800" size="100,100"></tw-passagedata><tw-passagedata pid="3" name="An easy confidence" tags="" position="500,1175" size="100,100">You&#39;re better than you thought.
 &#39;&#39;This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;A flashed half-smile&#39;&#39;
@@ -128,23 +162,8 @@ They turn and look when you pass. Oh yes they do.
   &lt;&lt;if $shadowy &lt; 200&gt;&gt;
     &lt;&lt;changePointsRange $shadowy &quot;1&quot; &quot;50&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="An old street sign" tags="" position="500,1900" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
-&lt;&lt;probability 60 $shadowy 70&gt;&gt;</tw-passagedata><tw-passagedata pid="3" name="A Reputation of Some Importance: Another Way" tags="" position="500,775" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
-&#39;&#39;This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London&#39;s Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.&#39;&#39;
-&lt;h3&gt;Success&lt;/h3&gt;
-&#39;&#39;The way ahead is clear&#39;&#39;&#39;
-Londoners will be informed of your brilliance.
-* You have a new Accomplishment... A Person of Some Importance
-* You&#39;ve lost 12 x Notability
-&lt;&lt;nobr&gt;&gt;
-&lt;&lt;listbox $aPersonOfSomeImportance&gt;&gt;
-  &lt;&lt;option &quot;A Shattering Force&quot;&gt;&gt;
-  &lt;&lt;option &quot;A Legendary Charisma&quot;&gt;&gt;
-  &lt;&lt;option &quot;An Invisible Eminence&quot;&gt;&gt;
-  &lt;&lt;option &quot;An Extraordinary Mind&quot;&gt;&gt;
-&lt;&lt;/listbox&gt;&gt;
-&lt;&lt;set $notability -= 12&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="A trip to the Flit" tags="" position="500,1800" size="100,100"></tw-passagedata><tw-passagedata pid="5" name="Attend a Church Service" tags="" position="500,1100" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="4" name="An old street sign" tags="" position="500,1900" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
+&lt;&lt;probability 60 $shadowy 70&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="Attend a Church Service" tags="" position="500,1100" size="100,100">An honest change of heart? Or just the tribute paid by vice to virtue?
 &#39;&#39;You may find your Scandal reduced a little.&#39;&#39;
 &lt;&lt;for _x range 100&gt;&gt;
   &lt;&lt;if _x &lt; 70&gt;&gt;
@@ -472,6 +491,7 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
   $pieceOfRostygold to 5825,
   $presbyteratePassphrase to 11,
   $primordialShriek to 686,
+  $prob to 0,
   $proscribedMaterial to 27,
   $puzzlingMap to 2,
   $puzzleDamaskScrap to 1,
@@ -541,7 +561,17 @@ Interestingly, it&#39;s a list with your name at the bottom. You say nothing as 
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $penny &gt;= 100 and $clayCorroborator not null&gt;&gt;
   * [[Employ the services of the Clay Corroborator]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="The strength of scars" tags="" position="500,550" size="100,100">Older, tougher, stronger, like a tree-root or a grizzled ape.
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="23" name="The Ways of the Flit" tags="" position="350,1850" size="100,100">Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
+&lt;&lt;if !$routeTheFlit&gt;&gt;
+  &lt;&lt;nobr&gt;&gt;
+    &lt;&lt;if $ratOnAString &gt;= 20&gt;&gt;
+      * [[A trip to the Flit]]
+    &lt;&lt;/if&gt;&gt;
+    /* * [[A secret road (3 FATE)]] */
+  &lt;&lt;/nobr&gt;&gt;
+&lt;&lt;else&gt;&gt;
+  * [[An old street sign]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="The rewards of correspondence" tags="" position="675,1300" size="100,100"></tw-passagedata><tw-passagedata pid="25" name="The strength of scars" tags="" position="500,550" size="100,100">Older, tougher, stronger, like a tree-root or a grizzled ape.
 &#39;&#39;This will increase your Dangerous by an uncertain but significant amount, at the price of five Hard-Earned Lessons.&#39;&#39;
 &lt;h3&gt;Success&lt;/h3&gt;
 &#39;&#39;Stand aside!&#39;&#39;
@@ -567,17 +597,7 @@ Seasoned veteran coming through!
 &lt;&lt;/nobr&gt;&gt;
 &lt;&lt;nobr&gt;&gt;
   &lt;&lt;set $hardEarnedLesson -= 5&gt;&gt;
-&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="24" name="The Ways of the Flit" tags="" position="350,1850" size="100,100">Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
-&lt;&lt;if !$routeTheFlit&gt;&gt;
-  &lt;&lt;nobr&gt;&gt;
-    &lt;&lt;if $ratOnAString &gt;= 20&gt;&gt;
-      * [[A trip to the Flit]]
-    &lt;&lt;/if&gt;&gt;
-    /* * [[A secret road (3 FATE)]] */
-  &lt;&lt;/nobr&gt;&gt;
-&lt;&lt;else&gt;&gt;
-  * [[An old street sign]]
-&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="25" name="The rewards of correspondence" tags="" position="675,1300" size="100,100"></tw-passagedata><tw-passagedata pid="26" name="Time in Bed" tags="" position="500,450" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="Tricks traps and treats" tags="" position="500,325" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Unleash Baseborn &amp; Fowlingpiece" tags="" position="500,1425" size="100,100">The Neath&#39;s most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="26" name="Time in Bed" tags="" position="500,450" size="100,100"></tw-passagedata><tw-passagedata pid="27" name="Tricks traps and treats" tags="" position="500,325" size="100,100"></tw-passagedata><tw-passagedata pid="28" name="Unleash Baseborn &amp; Fowlingpiece" tags="" position="500,1425" size="100,100">The Neath&#39;s most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
 
 &lt;h1&gt;Success&lt;/h1&gt;
 &#39;&#39;Expensive, but worth it&#39;&#39;
@@ -590,14 +610,18 @@ Seasoned veteran coming through!
 
 Counting the Days is increasing…
 You&#39;ve lost 10 x Infernal Contract
-Suspicion is dropping…</tw-passagedata><tw-passagedata pid="29" name="Use someone as your dupe" tags="" position="500,1025" size="100,100"></tw-passagedata><tw-passagedata pid="30" name="Use your influence to invite Slowcake&#39;s Amanuensis for a visit" tags="" position="500,675" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="Where the bodies are buried" tags="" position="500,2025" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Write a letter" tags="" position="500,900" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Write down a beloved family recipe" tags="" position="675,1375" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Write down some favoured fighting techniques" tags="" position="675,1225" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="Your Social Engagements" tags="" position="175,1000" size="100,100">&lt;!-- * [[Epistolary Matters]] --&gt;
+Suspicion is dropping…</tw-passagedata><tw-passagedata pid="29" name="Use someone as your dupe" tags="" position="500,1025" size="100,100"></tw-passagedata><tw-passagedata pid="30" name="Use your influence to invite Slowcake&#39;s Amanuensis for a visit" tags="" position="500,675" size="100,100"></tw-passagedata><tw-passagedata pid="31" name="Where the bodies are buried" tags="" position="500,2025" size="100,100"></tw-passagedata><tw-passagedata pid="32" name="Write a letter" tags="" position="500,900" size="100,100"></tw-passagedata><tw-passagedata pid="33" name="Write down a beloved family recipe" tags="" position="675,1375" size="100,100"></tw-passagedata><tw-passagedata pid="34" name="Write down some favoured fighting techniques" tags="" position="675,1225" size="100,100"></tw-passagedata><tw-passagedata pid="35" name="Your Social Engagements" tags="" position="175,1000" size="100,100">&lt;&lt;nobr&gt;&gt;
+&lt;!-- * [[Epistolary Matters]] --&gt;
 * [[Attend to Matters of Society!]]
+&lt;&lt;/nobr&gt;&gt;
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
 * [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
+&lt;&lt;nobr&gt;&gt;
 &lt;!-- * [[Attend to Matters of the Heart!]] --&gt;
-* [[Correspond with a contact at the Shuttered Palace]]</tw-passagedata><tw-passagedata pid="36" name="changePoints" tags="widget" position="200,0" size="100,100">&lt;&lt;widget &quot;changePoints&quot;&gt;&gt;
+* [[Correspond with a contact at the Shuttered Palace]]
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="36" name="changePoints" tags="widget" position="200,0" size="100,100">&lt;&lt;widget &quot;changePoints&quot;&gt;&gt;
 	&lt;&lt;set
     /* _var is the changing variable, _cP is the amount of change */
 		_var = _args[0],

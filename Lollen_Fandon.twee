@@ -6,13 +6,36 @@ Lollen Fandon
 {
   "ifid": "e60df512-18f7-4aa5-b5e0-91cada449dee",
   "format": "SugarCube",
-  "format-version": "2.37.0",
+  "format-version": "2.36.1",
   "start": "Your Social Engagements",
   "zoom": 0.6
 }
 
 
-:: An easy confidence {"position":"500,1175"}
+:: A Reputation of Some Importance: Another Way {"position":"500,775","size":"100,100"}
+Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
+<h3>Success</h3>
+''The way ahead is clear'''
+Londoners will be informed of your brilliance.
+* You have a new Accomplishment... A Person of Some Importance
+* You've lost 12 x Notability
+<<nobr>>
+<<listbox $aPersonOfSomeImportance>>
+  <<option "A Shattering Force">>
+  <<option "A Legendary Charisma">>
+  <<option "An Invisible Eminence">>
+  <<option "An Extraordinary Mind">>
+<</listbox>>
+<<set $notability -= 12>>
+<</nobr>>
+
+
+:: A trip to the Flit {"position":"500,1800","size":"100,100"}
+
+
+
+:: An easy confidence {"position":"500,1175","size":"100,100"}
 You're better than you thought.
 ''This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.''
 <h3>Success</h3>
@@ -32,35 +55,12 @@ They turn and look when you pass. Oh yes they do.
 <</nobr>>
 
 
-:: An old street sign {"position":"500,1900"}
+:: An old street sign {"position":"500,1900","size":"100,100"}
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
 <<probability 60 $shadowy 70>>
 
 
-:: A Reputation of Some Importance: Another Way {"position":"500,775"}
-Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
-''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
-<h3>Success</h3>
-''The way ahead is clear'''
-Londoners will be informed of your brilliance.
-* You have a new Accomplishment... A Person of Some Importance
-* You've lost 12 x Notability
-<<nobr>>
-<<listbox $aPersonOfSomeImportance>>
-  <<option "A Shattering Force">>
-  <<option "A Legendary Charisma">>
-  <<option "An Invisible Eminence">>
-  <<option "An Extraordinary Mind">>
-<</listbox>>
-<<set $notability -= 12>>
-<</nobr>>
-
-
-:: A trip to the Flit {"position":"500,1800"}
-
-
-
-:: Attend a Church Service {"position":"500,1100"}
+:: Attend a Church Service {"position":"500,1100","size":"100,100"}
 An honest change of heart? Or just the tribute paid by vice to virtue?
 ''You may find your Scandal reduced a little.''
 <<for _x range 100>>
@@ -78,10 +78,10 @@ An honest change of heart? Or just the tribute paid by vice to virtue?
       <<changePoints $persuasive "1">>
     <</if>>
   <</if>>
-<</for>> 
+<</for>>
 
 
-:: Attend to Matters of Danger and Wounds {"position":"350,500"}
+:: Attend to Matters of Danger and Wounds {"position":"350,500","size":"100,100"}
 Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 <<if $hardEarnedLesson >= 5>>
@@ -99,7 +99,7 @@ Here you may find Dangerous pursuits, and opportunities to lower Wounds. You may
 <</if>> */
 
 
-:: Attend to Matters of Persuasion and Scandal {"position":"350,1100"}
+:: Attend to Matters of Persuasion and Scandal {"position":"350,1100","size":"100,100"}
 Here you may find Persuasive pursuits, and opportunities to lower Scandal. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 /* <<if $persuasive >= 5>>
@@ -124,7 +124,7 @@ Here you may find Persuasive pursuits, and opportunities to lower Scandal. You m
 <</nobr>>
 
 
-:: Attend to Matters of Shadows and Suspicion {"position":"350,325"}
+:: Attend to Matters of Shadows and Suspicion {"position":"350,325","size":"100,100"}
 Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You may also work with acquaintances for mutual benefit.
 <<nobr>>
 /* <<if $shadowy >= 5>>
@@ -144,7 +144,7 @@ Here you may find Shadowy pursuits, and opportunities to lower Suspicion. You ma
 <</nobr>>
 
 
-:: Attend to Matters of Society! {"position":"350,725"}
+:: Attend to Matters of Society! {"position":"350,725","size":"100,100"}
 Earn Confident Smiles and other delights.
 <<nobr>>
   /* <<if $influence < 91 and !$aquaintanceWith and $friend.influence < 91 and !$friend.aquaintanceWith and !respondingToACallingCard>>
@@ -168,7 +168,7 @@ Earn Confident Smiles and other delights.
 <</if>>
 
 
-:: Attend to Matters of Watchfulness and Nightmares {"position":"325,1250"}
+:: Attend to Matters of Watchfulness and Nightmares {"position":"325,1250","size":"100,100"}
 Here you may find Watchful pursuits, and opportunities to lower Nightmares. You may also work with acquaintances for mutual benefit.
 <<nobr>>
   <<if $suddenInsight >= 5 and $watchful < 230>>
@@ -181,22 +181,22 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 <</nobr>>
 
 
-:: Correspond with a contact at the Shuttered Palace {"position":"350,900"}
+:: Correspond with a contact at the Shuttered Palace {"position":"350,900","size":"100,100"}
 You met a Wry Functionary at the Ambassador's Ball. You could cultivate this relationship.
 * [[Write a letter]]
 
 
-:: Dealing with the Colonel {"position":"350,2025"}
+:: Dealing with the Colonel {"position":"350,2025","size":"100,100"}
 A Disgruntled Colonel is writing his memoirs...
 * [[Where the bodies are buried]]
 
 
-:: Debug Panel {"position":"150,1350"}
+:: Debug Panel {"position":"150,1350","size":"100,100"}
 come here to run the code
 <<set $wounds=2, $hardEarnedLesson=5, $confidentSmile=5>>
 
 
-:: Employ the services of the Clay Corroborator {"position":"525,1300"}
+:: Employ the services of the Clay Corroborator {"position":"525,1300","size":"100,100"}
 You could not <em>possibly</em> be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
 <h3>Success</h3>
 ''Alibis for days''
@@ -245,8 +245,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 <!-- :: Invite someone to a spot of Suspicious Loitering {"position":"500,400"} -->
 
 
-
-:: Lay a false trail {"position":"500,1500"}
+:: Lay a false trail {"position":"500,1500","size":"100,100"}
 The truth is drab and grey, and involves you going to prison. Better the Constables have a series of lies to interpret.
 <h3>Success</h3>
 ''He he he''
@@ -259,7 +258,7 @@ Why did the robber stack vases in the victim's privy? What does the scrawl of 'M
 <</nobr>>
 
 
-:: Make sure nobody is telling tales {"position":"500,1600"}
+:: Make sure nobody is telling tales {"position":"500,1600","size":"100,100"}
 If you're the sort that is unlikely to ever be a member of the Parthenaeum, you could throw your weight about in the underworld.
 <h3>Success>
 ''An inconvenient fad''
@@ -277,8 +276,7 @@ Your knuckles are bruised – this fashion for iron hats among the youth will be
 <!-- :: Nurse a friend back to health {"position":"450,525"} -->
 
 
-
-:: Official incompetence {"position":"500,1675"}
+:: Official incompetence {"position":"500,1675","size":"100,100"}
 A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
 ''This will help you with Suspicion.''
 <h1>Success</h1>
@@ -292,7 +290,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 <</nobr>>
 
 
-:: Opportunity Deck {"position":"175,1725"}
+:: Opportunity Deck {"position":"175,1725","size":"100,100"}
 <<if $location == "Fallen London">>
 	<<if $suspicion == 2>>
     * [[The Law's Long Arm]]
@@ -325,12 +323,11 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
 
-
-:: Start {"position":"500,0"}
-
+:: Start {"position":"500,0","size":"100,100"}
 
 
-:: StoryInit {"position":"400,0"}
+
+:: StoryInit {"position":"400,0","size":"100,100"}
 <<set
   $aBadEnd to 1,
   $aeolianScream to 24,
@@ -452,6 +449,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $pieceOfRostygold to 5825,
   $presbyteratePassphrase to 11,
   $primordialShriek to 686,
+  $prob to 0,
   $proscribedMaterial to 27,
   $puzzlingMap to 2,
   $puzzleDamaskScrap to 1,
@@ -505,13 +503,13 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 <<set $friend to null>>
 
 
-:: StoryMenu [header] {"position":"0,1350"}
+:: StoryMenu [header] {"position":"0,1350","size":"100,100"}
 [[Opportunity Deck]]
 [[Your Social Engagements]]
 [[Debug Panel]]
 
 
-:: The Law's Long Arm {"position":"350,1475"}
+:: The Law's Long Arm {"position":"350,1475","size":"100,100"}
 Are those Constables following you? Were you careless? Has someone's nerve broken? Best deal with it.
 * [[Official incompetence]]
 <<if $spendingSecrets >= 4>>
@@ -532,7 +530,25 @@ Are those Constables following you? Were you careless? Has someone's nerve broke
 <</if>>
 
 
-:: The strength of scars {"position":"500,550"}
+:: The Ways of the Flit {"position":"350,1850","size":"100,100"}
+Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
+<<if !$routeTheFlit>>
+  <<nobr>>
+    <<if $ratOnAString >= 20>>
+      * [[A trip to the Flit]]
+    <</if>>
+    /* * [[A secret road (3 FATE)]] */
+  <</nobr>>
+<<else>>
+  * [[An old street sign]]
+<</if>>
+
+
+:: The rewards of correspondence {"position":"675,1300","size":"100,100"}
+
+
+
+:: The strength of scars {"position":"500,550","size":"100,100"}
 Older, tougher, stronger, like a tree-root or a grizzled ape.
 ''This will increase your Dangerous by an uncertain but significant amount, at the price of five Hard-Earned Lessons.''
 <h3>Success</h3>
@@ -562,33 +578,15 @@ Seasoned veteran coming through!
 <</nobr>>
 
 
-:: The Ways of the Flit {"position":"350,1850"}
-Swaying ropes above the streets. A home to beggars, revolutionaries and the forgotten people of London.
-<<if !$routeTheFlit>>
-  <<nobr>>
-    <<if $ratOnAString >= 20>>
-      * [[A trip to the Flit]]
-    <</if>>
-    /* * [[A secret road (3 FATE)]] */
-  <</nobr>>
-<<else>>
-  * [[An old street sign]]
-<</if>>
-
-
-:: The rewards of correspondence {"position":"675,1300"}
+:: Time in Bed {"position":"500,450","size":"100,100"}
 
 
 
-:: Time in Bed {"position":"500,450"}
+:: Tricks traps and treats {"position":"500,325","size":"100,100"}
 
 
 
-:: Tricks traps and treats {"position":"500,325"}
-
-
-
-:: Unleash Baseborn & Fowlingpiece {"position":"500,1425"}
+:: Unleash Baseborn & Fowlingpiece {"position":"500,1425","size":"100,100"}
 The Neath's most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
 
 <h1>Success</h1>
@@ -605,42 +603,46 @@ You've lost 10 x Infernal Contract
 Suspicion is dropping…
 
 
-:: Use someone as your dupe {"position":"500,1025"}
+:: Use someone as your dupe {"position":"500,1025","size":"100,100"}
 
 
 
-:: Use your influence to invite Slowcake's Amanuensis for a visit {"position":"500,675"}
+:: Use your influence to invite Slowcake's Amanuensis for a visit {"position":"500,675","size":"100,100"}
 
 
 
-:: Where the bodies are buried {"position":"500,2025"}
+:: Where the bodies are buried {"position":"500,2025","size":"100,100"}
 
 
 
-:: Write a letter {"position":"500,900"}
+:: Write a letter {"position":"500,900","size":"100,100"}
 
 
 
-:: Write down a beloved family recipe {"position":"675,1375"}
+:: Write down a beloved family recipe {"position":"675,1375","size":"100,100"}
 
 
 
-:: Write down some favoured fighting techniques {"position":"675,1225"}
+:: Write down some favoured fighting techniques {"position":"675,1225","size":"100,100"}
 
 
 
-:: Your Social Engagements {"position":"175,1000"}
+:: Your Social Engagements {"position":"175,1000","size":"100,100"}
+<<nobr>>
 <!-- * [[Epistolary Matters]] -->
 * [[Attend to Matters of Society!]]
+<</nobr>>
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
 * [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
+<<nobr>>
 <!-- * [[Attend to Matters of the Heart!]] -->
 * [[Correspond with a contact at the Shuttered Palace]]
+<</nobr>>
 
 
-:: changePoints [widget] {"position":"200,0"}
+:: changePoints [widget] {"position":"200,0","size":"100,100"}
 <<widget "changePoints">>
 	<<set
     /* _var is the changing variable, _cP is the amount of change */
@@ -662,7 +664,7 @@ Suspicion is dropping…
 <</widget>>
 
 
-:: changePointsRange [widget] {"position":"600,0"}
+:: changePointsRange [widget] {"position":"600,0","size":"100,100"}
 <<widget "changePointsRange">>
 	<<set
     /* _var is the changing variable, _cPmin is the minimum amount of chang and cPmax is the maximum */
@@ -691,7 +693,7 @@ Suspicion is dropping…
 <</widget>>
 
 
-:: probability [widget] {"position":"700,0"}
+:: probability [widget] {"position":"700,0","size":"100,100"}
 <<widget "probability">>
   <<set 
     _scaler = _args[0],
@@ -709,11 +711,35 @@ Suspicion is dropping…
   <</if>>
 <</widget>>
 
-:: styles [header] {"position":"100,0"}
+
+:: styles [header] {"position":"100,0","size":"100,100"}
 
 
 
-:: StoryStylesheet [stylesheet] {"position":"300,0"}
+:: StoryScript [script]
+setup.probability = function (scaler, qualityLevel, difficultyLevel) {
+	let prob = scaler * qualityLevel / difficultyLevel;
+  	let prob = Math.floor(prob);
+  	let probTry = Math.random() * 100;
+  	if (probTry > prob) {
+    	return false;
+    } else {
+      return true;
+    };
+};
+window.probability = function (scaler, qualityLevel, difficultyLevel) {
+	let prob = scaler * qualityLevel / difficultyLevel;
+  	let prob = Math.floor(prob);
+  	let probTry = Math.random() * 100;
+  	if (probTry > prob) {
+    	return false;
+    } else {
+      return true;
+    };
+};
+
+
+:: StoryStylesheet [stylesheet]
 @import url('https://fonts.googleapis.com/css?family=Barlow');
 
 tw-story { font: 1em "Barlow", sans-serif; }
