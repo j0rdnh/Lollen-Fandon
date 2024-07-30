@@ -977,14 +977,14 @@ Suspicion is dropping…
 <<function "probability">>
 	<<set 
     	_scaler to _args[0],
-        _qualityLevel to _args[1],
-        _difficultyLevel to _args[2],
-        _prob to (_scaler * _qualityLevel / _difficultyLevel),
-        _prob to Math.floor(_prob),
-        _probTry to (Math.random() * 100)
+      _qualityLevel to _args[1],
+      _difficultyLevel to _args[2],
+      _prob to (_scaler * _qualityLevel / _difficultyLevel),
+      _prob to Math.floor(_prob),
+      _probTry to (Math.random() * 100)
     >>
-    <<if _probTry <  _prob>>
-		<<set _return to true>>
+    <<if _probTry < _prob>>
+		  <<set _return to true>>
     <<else>>
     	<<set _return to false>>
     <</if>>

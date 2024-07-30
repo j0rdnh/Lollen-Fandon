@@ -972,14 +972,14 @@ Suspicion is dropping…</tw-passagedata><tw-passagedata pid="39" name="Use some
 &lt;&lt;/widget&gt;&gt;</tw-passagedata><tw-passagedata pid="49" name="probability" tags="function" position="300,0" size="100,100">&lt;&lt;function &quot;probability&quot;&gt;&gt;
 	&lt;&lt;set 
     	_scaler to _args[0],
-        _qualityLevel to _args[1],
-        _difficultyLevel to _args[2],
-        _prob to (_scaler * _qualityLevel / _difficultyLevel),
-        _prob to Math.floor(_prob),
-        _probTry to (Math.random() * 100)
+      _qualityLevel to _args[1],
+      _difficultyLevel to _args[2],
+      _prob to (_scaler * _qualityLevel / _difficultyLevel),
+      _prob to Math.floor(_prob),
+      _probTry to (Math.random() * 100)
     &gt;&gt;
-    &lt;&lt;if _probTry &lt;  _prob&gt;&gt;
-		&lt;&lt;set _return to true&gt;&gt;
+    &lt;&lt;if _probTry &lt; _prob&gt;&gt;
+		  &lt;&lt;set _return to true&gt;&gt;
     &lt;&lt;else&gt;&gt;
     	&lt;&lt;set _return to false&gt;&gt;
     &lt;&lt;/if&gt;&gt;
