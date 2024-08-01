@@ -12,33 +12,55 @@ Lollen Fandon
 }
 
 
-:: A Reputation of Some Importance: Another Way {"position":"500,775","size":"100,100"}
-Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
-''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
-<h3>Success</h3>
-''The way ahead is clear'''
-Londoners will be informed of your brilliance.
-* You have a new Accomplishment... A Person of Some Importance
-* You've lost 12 x Notability
+:: A disturbance outside
+Someone is shouting, probably at someone else. That's how it usually works.
 <<nobr>>
-<<listbox $aPersonOfSomeImportance>>
-  <<option "A Shattering Force">>
-  <<option "A Legendary Charisma">>
-  <<option "An Invisible Eminence">>
-  <<option "An Extraordinary Mind">>
-<</listbox>>
-<<set $notability -= 12>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''Inventive invective''
+    The argument goes on for a good hour. It explores the pedigree, the reputation and the anatomical idiosyncracies of both participants in some detail. It's not exactly soothing, but it is entertaining.
+
+    Nightmares is dropping… (-1 CP)
+    Wounds is dropping… (-3 CP)
+    [The Airs of London change…] (random)
+    You've gained 1 x Intriguing Snippet
+    <<changePoints $nightmares -1>>
+    <<changePoints $wounds -3>>
+    <<set $intriguingSnippet += 1>>
+  <<else>>
+    !!!Failure
+    ''On and on''
+    The disagreement is partly political, partly personal and wholly uninteresting. One party screeches like an owl in a well: the other affects a pedantic nasal whine. You bury your head under your pillow and eventually it stops. […]
+
+    Wounds is dropping… (-2 CP)
+    [The Airs of London change…] (random)
+    <<changePoints $wounds -2>>
+  <</if>>
+  <<set $theAirsOfLondon to random(0,100)>>
 <</nobr>>
 
 
-:: A trip to the Flit {"position":"500,1800","size":"100,100"}
+:: A dreamless sleep
+Candles sink low. Gas-lamps burn pale. Footsteps are hushed. Even the rats have ceased to scurry.
 
+!!!Success
+''The arms of Morpheus''
+You awake refreshed, invigorated. A rasher gentleman might even leap from bed. You reserve your energies. But matters have improved.
 
+Wounds is dropping… (-7 CP)
+Nightmares is dropping… (-2 CP)
+[The Airs of London change…] (set to 0)
+<<nobr>>
+  <<changePoints $wounds -7>>
+  <<changePoints $nightmares -2>>
+  <<set $theAirsOfLondon to 0>>
+<</nobr>>
 
 :: An easy confidence {"position":"500,1175","size":"100,100"}
 You're better than you thought.
 ''This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.''
-<h3>Success</h3>
+!!!Success
 ''A flashed half-smile''
 They turn and look when you pass. Oh yes they do.
 <<nobr>>
@@ -59,7 +81,7 @@ They turn and look when you pass. Oh yes they do.
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
 <<set _proba to tw.probability(60, $shadowy, 70)>>
 <<if _proba is true>>
-  <h3>Success</h3>
+  !!!Success
   ''Quick and lucky and wise''
   Even the Raggedy Men have stopped looking for street signs. But you know better. Your prize is two hundred feet above ground, nailed to a factory chimney and black with soot
   
@@ -70,7 +92,7 @@ When London was kneaded into its new form, the Masters declared the old street s
     <<set $londonStreetSign += 1>>
   <</nobr>>
 <<else>>
-  <h3>Failure</h3>
+  !!!Failure
   ''Nothing''
   Not quick enough. Not lucky enough. If there are street signs still left up here, they're known only to bats.
   
@@ -83,17 +105,83 @@ When London was kneaded into its new form, the Masters declared the old street s
 <</nobr>>
 
 
+:: A Reputation of Some Importance: Another Way {"position":"500,775","size":"100,100"}
+Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
+!!!Success
+''The way ahead is clear'''
+Londoners will be informed of your brilliance.
+* You have a new Accomplishment... A Person of Some Importance
+* You've lost 12 x Notability
+<<nobr>>
+<<listbox $aPersonOfSomeImportance>>
+  <<option "A Shattering Force">>
+  <<option "A Legendary Charisma">>
+  <<option "An Invisible Eminence">>
+  <<option "An Extraordinary Mind">>
+<</listbox>>
+<<set $notability -= 12>>
+<</nobr>>
+
+
+:: A Succession of visitors
+You'd like to take the day off, but they will keep knocking.
+
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''Surprisingly welcome''
+    First, a Dauntless Temperance Campaigner with a hearty potato-soup for the convalescent. Next, an acquaintance with a bottle of decent wine. Finally, some lout with a bill, but you hide under the covers until they're gone.
+  
+    Wounds is dropping… (-4 CP)
+    You've gained 1 x Bottle of Morelways 1872
+    <<changePoints $wounds -4>>
+    <<set $bottleOfMorelways1872 += 1>>
+  <<else>>
+    !!!Failure
+    ''An unending clatter on the stairs''
+    How do they find you? These petitioners, creditors and so-called well-wishers? Hardly a moment to yourself. Your head pounds. But at least none of them make you get out of bed.
+
+    Wounds is dropping… (-3 CP)
+    <<changePoints $wounds -3>>
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+:: A trip to the Flit {"position":"500,1800","size":"100,100"}
+A Raggedy Man, one of the Flit's beggars, will show you around if you bring something for the stew.
+!!!Success
+''Off you go''
+The Raggedy Man keeps an eye on the rat-sack as you climb. Twice he warns you against dropping it. The Flit is a hungry place.
+Success Instructions: You're heading to The Flit. When you leave, you won't be able to return unless you open up the route at your lodgings or find another Raggedy Man like this one. The Flit is most interesting for those who have Shadowy 60+.
+
+You have moved to a new area: The Flit
+You've lost 20 x Rat on a String
+Shadowy is increasing… (+1 CP, up to level 200 +  Shadowy Gains)
+An occurrence! Your 'Discovered: the Flit' Quality is now 1! (hidden)
+<<nobr>>
+  <<set $location = "The Flit">>
+  <<set $ratOnAString -= 20>>
+  <<set $discoveredTheFlit = 1>>
+  <<if $shadowy < 200>>
+    <<changePoints $shadowy 1>>
+  <</if>>
+<</nobr>>
+
+
 :: Attend a Church Service {"position":"500,1100","size":"100,100"}
 An honest change of heart? Or just the tribute paid by vice to virtue?
 ''You may find your Scandal reduced a little.''
 <<for _x range 100>>
   <<if _x < 70>>
-    <h3>Success</h3>
+    !!!Success
     ''An uplifting and profitable hour''
     Your reputation is a little improved, and several of the congregation are attractive enough that you even consider returning next week.
     <<changePoints $scandal "-2">>
   <<else>>
-    <h3>Failure</h3>
+    !!!Failure
     ''An uplifting but unprofitable hour''
     Other churchgoers frown and tut, and the vicar makes unflattering mention of you in his sermon. Still, several of the congregation are attractive enough that you don't feel your time was entirely wasted.
     <<changePoints $scandal "1">>
@@ -204,9 +292,137 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 <</nobr>>
 
 
+:: A visit from Slowcake's Amanuensis
+[…] MR ____ ______, Assistant to Mr Slowcake. "I have dispensed with my name[…]Along with other encumbrances.[…] I am not significant. You. You,  [formal address], may be more significant than we had thought."
+"I wonder if your entry […] ought to be a little more prominent?[…]"
+''This is an opportunity to increase your Notability! If you ever have trouble finding this card, "Attend to matters of society!" in Your Social Engagements.''
+
+!!!Learn about  Notability:
+* [[Chat to the Assistant]]
+* [["And why would I care how Notable I am?"]]
+* [[Purchase an entry in Slowcake's Exceptionals]]
+
+!!!Alter your  Notability:
+* [["I deserve a more emphatic type-face, at the very least."]]
+* [[Recommend an unknown acquaintance]]
+* [[Throw the Amanuensis out on his oily little ear]]
+* [[Gain St Destin's Candle]]
+
+!!!Make Waves:
+* [[Boast wildly]]
+* [["The company I keep speaks for me."]]
+* [[Bribe the man]]
+* [[Say nothing. Wait for the Amanuensis to speak instead]]
+* [[Flirt with the Amanuensis]]
+* [[Spread gossip about a rival]]
+
+
+:: A visit from the Regretful Soldier
+"Let's take a look at you!"
+
+!!!Success
+''Battlefield medicine''
+The Soldier learnt his doctoring in the swamps of Hell. His skills are rough-and-ready. But his hands are deft and surprisingly gentle.
+
+Wounds is dropping… (-6 CP)
+[The Airs of London change…] (random)
+<<nobr>>
+  <<changePoints $wounds -6>>
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+
+:: A visit from the Repentant Forger
+"I brought a little something to cheer you up."
+
+!!!Success
+''Does your nose really look like that?''
+He's sketched a caricature of you on a slab of jade. He leaves it by your bedside as you chat. He's a little melancholy, and he doesn't do much to lift your spirits, but you sense he's glad of the company.
+
+You've gained 50 x Jade Fragment
+Wounds is dropping… (-3 CP)
+Seeing through the Eyes of Icarus is increasing… (+1 CP)
+[The Airs of London change…] (random)
+<<nobr>>
+  <<set $jadeFragment += 50>>
+  <<changePoints $wounds -3>>
+  <<changePoints $seeingThroughTheEyesOfIcarus += 1>>
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+
+:: A visit from the Sardonic Music-Hall Singer
+"Are you really supposed to be ill? Sweetheart, I'm not impressed."
+
+!!!Success
+''A troublesome visitor''
+She moves restlessly […] fiddling with all the possessions you might have asked her not to touch. Her bedside manner is brisk, at best. You don't get much rest. But it's hard to stay glum when she's in the room. And she always brings a bottle.
+
+You've gained 1 x Bottle of Strangling Willow Absinthe
+Nightmares is dropping… (-3 CP)
+[The Airs of London change…] (random)
+Wounds is dropping… (-1 CP)
+<<nobr>>
+  <<set $bottleOfStranglingWillowAbsinthe += 1>>
+  <<changePoints $nightmares -3>>
+  <<set $theAirsOfLondon to random(0,100)>>
+  <<changePoints $wounds -1>>
+<</nobr>>
+
+
+:: A visit from the Wry Functionary
+"I had business at the Bazaar, and you were on my way. More or less."
+
+!!!Success
+''In gossipy mood''
+He's unusually talkative: perhaps it's the air outside the Palace that's loosened his tongue. He certainly seems more relaxed. At one point, you almost think he intends to loosen his tie.
+
+You've gained 2 x Intriguing Snippet
+You've gained 1 x Scrap of Incendiary Gossip
+Wounds is dropping… (-3 CP)
+[The Airs of London change…] (random)
+<<nobr>>
+  <<set $intriguingSnippet += 2>>
+  <<set $scrapOfIncendiaryGossip += 1>>
+  <<changePoints $wounds -3>>
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+
 :: Correspond with a contact at the Shuttered Palace {"position":"350,900","size":"100,100"}
 You met a Wry Functionary at the Ambassador's Ball. You could cultivate this relationship.
 * [[Write a letter]]
+
+
+:: Curled up with a book
+Quite the read, this one.
+
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''Guilty pleasures''
+    You could reasonably describe this slim volume as 'titillating'. Perhaps also 'arresting'. Certainly 'eye-opening.' It makes the time pass rather faster, and your undignified sniggering goes unremarked in the privacy of your bedroom.
+
+    Wounds is dropping… (-5 CP)
+    Nightmares is dropping… (-2 CP)
+    <<changePoints $wounds -5>>
+    <<changePoints $nightmares -2>>
+  <<else>>
+    !!!Failure
+    ''Not exactly light reading''
+    Halfway through, you quietly close the book and settle back on to your bolster. Some matters should be reserved for when one is in better fettle.
+
+    Wounds is dropping… (-3 CP)
+    Nightmares is increasing… (+1 CP)
+    You've gained 2 x Appalling Secret
+    <<changePoints $wounds -3>>
+    <<changePoints $nightmareas 1>>
+    <<set $appallingSecret += 2>>
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
 
 
 :: Dealing with the Colonel {"position":"350,2025","size":"100,100"}
@@ -221,7 +437,7 @@ come here to run the code
 
 :: Employ the services of the Clay Corroborator {"position":"525,1300","size":"100,100"}
 You could not <em>possibly</em> be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
-<h3>Success</h3>
+!!!Success
 ''Alibis for days''
 The Clay man is [...] thorough. He was [...] with you all day yesterday. And [...] the day before. And, it transpires, all week. He produces receipts, corroborating your whereabouts [...]
 The law leaves with [...] their notebooks filled with an entirely fabricated social calendar.
@@ -248,7 +464,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
     <<if $dangerous > 80 and $talesOfTerror > 4>>
       * [[Write down some favoured fighting techniques]]
     <</if>>
-    <<if $shadowy > 80 and $journalsOfInfamy > 4>>
+    <<if $shadowy > 80 and $journalOfInfamy > 4>>
       * [[Write down a beloved family recipe]]
     <</if>>
     <<if $penny > 0>>
@@ -270,7 +486,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 
 :: Lay a false trail {"position":"500,1500","size":"100,100"}
 The truth is drab and grey, and involves you going to prison. Better the Constables have a series of lies to interpret.
-<h3>Success</h3>
+!!!Success
 ''He he he''
 Why did the robber stack vases in the victim's privy? What does the scrawl of 'MONSTROUS ARE THOSE WHO WILL NOT WITHIN' on the mirror mean? And why all the folded paper swans?
 * Suspicion is dropping...
@@ -283,7 +499,7 @@ Why did the robber stack vases in the victim's privy? What does the scrawl of 'M
 
 :: Make sure nobody is telling tales {"position":"500,1600","size":"100,100"}
 If you're the sort that is unlikely to ever be a member of the Parthenaeum, you could throw your weight about in the underworld.
-<h3>Success>
+!!!Success>
 ''An inconvenient fad''
 Your knuckles are bruised – this fashion for iron hats among the youth will be the death of someone. But you're sure nobody is going to be talking to the Constables about you for a while.
 <<nobr>>
@@ -346,6 +562,37 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
 
+:: Spend a day in bed
+Allow the natural healing processes to do their slow and peaceful work.
+
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 40>>
+    !!!Success
+    ''A quiet afternoon''
+    The fire crackles in the grate. Fog crowds against the windowpanes. A raven lifts its voice in song. It's peaceful down here.
+
+    Wounds is dropping… (-3 CP)
+    Nightmares is dropping… (-2 CP)
+    <<changePoints $wounds -3>>
+    <<changePoints $nightmares -2>>
+  <<elseif _x <= 80>>
+    !!!Alternative Success
+    ''You recover, a little''
+    Healing or not, it's a wretched day outside, and you deserve a rest.
+    
+    Wounds is dropping… (-3 CP)
+    <<changePoints $wounds -3>>
+  <<else>>
+    !!!Failure
+    ''A dull afternoon''
+    The life of a convalescent! How frustrating! You long to be up and about again, but your wounds are slow to heal.
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+
 :: Start {"position":"0,0","size":"100,100"}
 
 
@@ -358,6 +605,10 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $anIdentityUncovered to 7,
   $aPersonOfSomeImportance to null,
   $apostatesPsalm to 7,
+  $acquaintanceTheRegretfulSoldier to null,
+  $acquaintanceTheRepentantForger to null,
+  $acquaintanceTheSardonicMusicHallSinger to null,
+  $acquaintanceTheWryFunctionary to null,
   $attar to 7,
   $aClandestineRendevousAtWatchmakersHill to 1,
   $aHeadfulOfPicaresqueTales to 1,
@@ -434,7 +685,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $intriguingSnippet to 51,
   $jadeFragment to 3444,
   $jasmineLeaves to 15,
-  $journalsOfInfamy to 10,
+  $journalOfInfamy to 10,
   $katalepticToxicology to 1,
   $keyToYourRoomsAboveAGamblingDen to 1,
   $leatheryHumanHeart to 1,
@@ -486,6 +737,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $routeTheFlit to true,
   $salveOfRighteousness to 1,
   $sapphire to 31,
+  $seeingThroughTheEyesOfIcarus to 0,
   $scandal to 1,
   $scrapOfIncendiaryGossip to 33,
   $screamingMapRightHandHalf to 2,
@@ -505,7 +757,9 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $suspicion to 2,
   $swornStatement to 2,
   $talesOfTerror to 158,
+  $theAirsOfLondon to null,
   $thirstyBombazineScrap to 22,
+  $touchedByFingerwork to null,
   $touchingLoveStory to 9,
   $tradeSecret to 1,
   $unearthlyFossil to 7,
@@ -530,6 +784,37 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 [[Opportunity Deck]]
 [[Your Social Engagements]]
 [[Debug Panel]]
+
+
+:: Surface-dreams
+You recall the sky.
+
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''so very blue''
+    Colours that barely exist in the Neath, among all the grey and green and black silver-streaked. But you remember it, and perhaps you are comforted.
+    
+    Wounds is dropping… (-3 CP)
+    Nightmares is dropping… (-4 CP)
+    You've lost 1 x Vision of the Surface
+    <<changePoints $wounds -3>>
+    <<changePoints $nightmares -4>>
+    <<set $visionOfTheSurface -= 1>>
+  <<else>>
+    !!!Failure
+    ''So very far above''
+    Uncountable fathoms of rock lie between you and the airs of the Surface. Its weight is almost tangible.
+    
+    Wounds is dropping… (-3 CP)
+    Nightmares is increasing… (+1 CP)
+    <<changePoints $wounds -3>>
+    <<changePoints $nightmareas 1>>
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
 
 
 :: The Law's Long Arm {"position":"350,1475","size":"100,100"}
@@ -567,14 +852,39 @@ Swaying ropes above the streets. A home to beggars, revolutionaries and the forg
 <</if>>
 
 
-:: The rewards of correspondence {"position":"675,1300","size":"100,100"}
+:: The red herald
+For what might be hours, you listen to the beating of your heart. A kind of phantasmagoria comes upon you. Your body is a stranger to you.
 
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''a deep peace''
+    Your body was assaulted, but it remains your castle: your thoughts like watchmen pacing the battlements, your heart like a water-mill. All is well. You heal, you thrive.    
+    
+    Wounds is dropping… (-4 CP)
+    Nightmares is dropping… (-2 CP)
+    <<changePoints $wounds -4>>
+    <<changePoints $nightmares -2>>
+  <<else>>
+    !!!Failure
+    ''The murmur in the veins''
+    Sometimes, one listens to the blood in one's veins, and it speaks to one of the disagreeable nature of mortality, of the uncleanliness of flesh, and of the inevitable feast of worms.[…]Sometimes, one badly needs distraction.    
+    
+    Wounds is dropping… (-2 CP)
+    Nightmares is increasing… (+1 CP)
+    <<changePoints $wounds -2pers>>
+    <<changePoints $nightmareas 1>>
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
 
 
 :: The strength of scars {"position":"500,550","size":"100,100"}
 Older, tougher, stronger, like a tree-root or a grizzled ape.
 ''This will increase your Dangerous by an uncertain but significant amount, at the price of five Hard-Earned Lessons.''
-<h3>Success</h3>
+!!!Success
 ''Stand aside!''
 Seasoned veteran coming through!
 * You've lost 5 x Hard-Earned Lesson
@@ -602,11 +912,67 @@ Seasoned veteran coming through!
 
 
 :: Time in Bed {"position":"500,450","size":"100,100"}
-
+<<nobr>>
+  <<if $theAirsOfLondon <= 24>>
+    * [[Spend a day in bed]]
+    <<if $acquaintanceTheRepentantForger >= 5>>
+      * [[A visit from the Repentant Forger]]
+    <</if>>
+  <<elseif $theAirsOfLondon <= 49>>
+    * [[A Succession of visitors]]
+    <<if $journalOfInfamy >= 1>>
+      * [[Curled up with a book]]
+    <</if>>
+    <<if $acquaintanceTheSardonicMusicHallSinger >= 5>>
+      * [[A visit from the Sardonic Music-Hall Singer]]
+    <</if>>
+  <<elseif $theAirsOfLondon <= 74>>
+    * [[A disturbance outside]]
+    <<if $touchedByFingerwork>>
+      * [[Visions in the mirror]]
+    <</if>>
+    <<if $acquaintanceTheRegretfulSoldier >= 5>>
+      * [[A visit from the Regretful Soldier]]
+    <</if>>
+  <<elseif $theAirsOfLondon <= 99>>
+    * [[The red herald]]
+    <<if $visionOfTheSurface >= 1>>
+      * [[Surface-dreams]]
+    <</if>>
+    <<if $acquaintanceTheWryFunctionary >= 5>>
+      * [[A visit from the Wry Functionary]]
+    <</if>>
+  <</if>>
+  <<if $theAirsOfLondon >= 90 && $theAirsOfLondon <= 100>>
+    * [[A dreamless sleep]]
+  <</if>>
+<</nobr>>
 
 
 :: Tricks traps and treats {"position":"500,325","size":"100,100"}
+Alliteration: the last refuge of the scoundrel. You are not so much a scoundrel as all that. But you're well on your scoundrelly way.
+''This will increase your Shadowy by an uncertain but substantial amount, at the price of five Hastily Scrawled Warning Notes.''
 
+!!!Success
+''The lesson of the lamp''
+Take it to heart. Move in darkness.
+
+You've lost 5 x Hastily Scrawled Warning Note
+Shadowy is increasing… (+1-50 CP, up to level 200 +  Shadowy Gains)
+Persuasive is increasing… (+1 CP, up to level 200 +  Persuasive Gains)
+Dangerous is increasing… (+1 CP, up to level 200 +  Dangerous Gains)
+<<nobr>>
+  <<set $hastilyScrawledWarningNote -= 5>>
+  <<if $shadowy <= 200>>
+    <<changePointsRange $shadowy 1 50>>
+  <</if>>
+  <<if $persuasive <= 200>>
+    <<changePoints $persuasive 1>>
+  <</if>>
+  <<if $dangrous <= 200>>
+    <<changePoints $dangrous 1>>
+  <</if>>
+<</nobr>>
 
 
 :: Unleash Baseborn & Fowlingpiece {"position":"500,1425","size":"100,100"}
@@ -617,20 +983,28 @@ The Neath's most ferocious lawyers. Their barristers will have the sturdiest pol
 
 'The Constable in question has signed a testimonial to the effect that you didn't do it, you wouldn't know how to do it, and that you were in Paris at the time it happened.'
 
-<<changePoints $countingTheDays 5>>
-<<changePoints $suspicion random(6, 7)>>
-<<set $infernalContract -= 10>>
-
 Counting the Days is increasing…
 You've lost 10 x Infernal Contract
 Suspicion is dropping…
 
-
-:: Use someone as your dupe {"position":"500,1025","size":"100,100"}
-
+<<nobr>>
+  <<changePoints $countingTheDays 5>>
+  <<changePoints $suspicion random(6, 7)>>
+  <<set $infernalContract -= 10>>
+<</nobr>>
 
 
 :: Use your influence to invite Slowcake's Amanuensis for a visit {"position":"500,675","size":"100,100"}
+If your Making Waves (plus your Bizarre, Dreaded and Respectable) is enough to increase your Notability... you can make it known that you would like to entertain Slowcake's Amanuensis for tea.
+''This will draw the Visit from Slowcake's Amanuensis card, at no cost. You'll need to have at least one point of Notability already.''
+
+!!!Success
+''Tremors along the web''
+And now you wait.
+[[A visit from Slowcake's Amanuensis]]
+
+
+:: Visions in the mirror
 
 
 
@@ -651,18 +1025,14 @@ Suspicion is dropping…
 
 
 :: Your Social Engagements {"position":"175,1000","size":"100,100"}
-<<nobr>>
 <!-- * [[Epistolary Matters]] -->
 * [[Attend to Matters of Society!]]
-<</nobr>>
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
 * [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
-<<nobr>>
 <!-- * [[Attend to Matters of the Heart!]] -->
 * [[Correspond with a contact at the Shuttered Palace]]
-<</nobr>>
 
 
 :: changePoints [widget] {"position":"400,0","size":"100,100"}
