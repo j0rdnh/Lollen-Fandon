@@ -12,44 +12,12 @@ Lollen Fandon
 }
 
 
-:: A Reputation of Some Importance: Another Way {"position":"500,775","size":"100,100"}
-Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
-''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
-<h3>Success</h3>
-''The way ahead is clear'''
-Londoners will be informed of your brilliance.
-* You have a new Accomplishment... A Person of Some Importance
-* You've lost 12 x Notability
-<<nobr>>
-<<listbox $aPersonOfSomeImportance>>
-  <<option "A Shattering Force">>
-  <<option "A Legendary Charisma">>
-  <<option "An Invisible Eminence">>
-  <<option "An Extraordinary Mind">>
-<</listbox>>
-<<set $notability -= 12>>
-<</nobr>>
+:: A disturbance outside
 
 
-:: A trip to the Flit {"position":"500,1800","size":"100,100"}
-A Raggedy Man, one of the Flit's beggars, will show you around if you bring something for the stew.
-<h3>Success</h3>
-''Off you go''
-The Raggedy Man keeps an eye on the rat-sack as you climb. Twice he warns you against dropping it. The Flit is a hungry place.
-Success Instructions: You're heading to The Flit. When you leave, you won't be able to return unless you open up the route at your lodgings or find another Raggedy Man like this one. The Flit is most interesting for those who have Shadowy 60+.
 
-You have moved to a new area: The Flit
-You've lost 20 x Rat on a String
-Shadowy is increasing… (+1 CP, up to level 200 +  Shadowy Gains)
-An occurrence! Your 'Discovered: the Flit' Quality is now 1! (hidden)
-<<nobr>>
-  <<set $location = "The Flit">>
-  <<set $ratOnAString -= 20>>
-  <<set $discoveredTheFlit = 1>>
-  <<if $shadowy < 200>>
-    <<changePoints $shadowy 1>>
-  <</if>>
-<</nobr>>
+:: A dreamless sleep
+
 
 
 :: An easy confidence {"position":"500,1175","size":"100,100"}
@@ -97,6 +65,49 @@ When London was kneaded into its new form, the Masters declared the old street s
 <<nobr>>
   	<<set $londonStreetSign += 1>>
  	<<set $location = "The Flit">>
+<</nobr>>
+
+
+:: A Reputation of Some Importance: Another Way {"position":"500,775","size":"100,100"}
+Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
+''This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London's Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.''
+<h3>Success</h3>
+''The way ahead is clear'''
+Londoners will be informed of your brilliance.
+* You have a new Accomplishment... A Person of Some Importance
+* You've lost 12 x Notability
+<<nobr>>
+<<listbox $aPersonOfSomeImportance>>
+  <<option "A Shattering Force">>
+  <<option "A Legendary Charisma">>
+  <<option "An Invisible Eminence">>
+  <<option "An Extraordinary Mind">>
+<</listbox>>
+<<set $notability -= 12>>
+<</nobr>>
+
+
+:: A Succession of visitors
+
+
+:: A trip to the Flit {"position":"500,1800","size":"100,100"}
+A Raggedy Man, one of the Flit's beggars, will show you around if you bring something for the stew.
+<h3>Success</h3>
+''Off you go''
+The Raggedy Man keeps an eye on the rat-sack as you climb. Twice he warns you against dropping it. The Flit is a hungry place.
+Success Instructions: You're heading to The Flit. When you leave, you won't be able to return unless you open up the route at your lodgings or find another Raggedy Man like this one. The Flit is most interesting for those who have Shadowy 60+.
+
+You have moved to a new area: The Flit
+You've lost 20 x Rat on a String
+Shadowy is increasing… (+1 CP, up to level 200 +  Shadowy Gains)
+An occurrence! Your 'Discovered: the Flit' Quality is now 1! (hidden)
+<<nobr>>
+  <<set $location = "The Flit">>
+  <<set $ratOnAString -= 20>>
+  <<set $discoveredTheFlit = 1>>
+  <<if $shadowy < 200>>
+    <<changePoints $shadowy 1>>
+  <</if>>
 <</nobr>>
 
 
@@ -221,9 +232,29 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 <</nobr>>
 
 
+:: A visit from the Regretful Soldier
+
+
+
+:: A visit from the Repentant Forger
+
+
+
+:: A visit from the Sardonic Music-Hall Singer
+
+
+
+:: A visit from the Wry Functionary
+
+
+
 :: Correspond with a contact at the Shuttered Palace {"position":"350,900","size":"100,100"}
 You met a Wry Functionary at the Ambassador's Ball. You could cultivate this relationship.
 * [[Write a letter]]
+
+
+:: Curled up with a book
+
 
 
 :: Dealing with the Colonel {"position":"350,2025","size":"100,100"}
@@ -265,7 +296,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
     <<if $dangerous > 80 and $talesOfTerror > 4>>
       * [[Write down some favoured fighting techniques]]
     <</if>>
-    <<if $shadowy > 80 and $journalsOfInfamy > 4>>
+    <<if $shadowy > 80 and $journalOfInfamy > 4>>
       * [[Write down a beloved family recipe]]
     <</if>>
     <<if $penny > 0>>
@@ -379,6 +410,10 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $anIdentityUncovered to 7,
   $aPersonOfSomeImportance to null,
   $apostatesPsalm to 7,
+  $acquaintanceTheRegretfulSoldier to null,
+  $acquaintanceTheRepentantForger to null,
+  $acquaintanceTheSardonicMusicHallSinger to null,
+  $acquaintanceTheWryFunctionary to null,
   $attar to 7,
   $aClandestineRendevousAtWatchmakersHill to 1,
   $aHeadfulOfPicaresqueTales to 1,
@@ -455,7 +490,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $intriguingSnippet to 51,
   $jadeFragment to 3444,
   $jasmineLeaves to 15,
-  $journalsOfInfamy to 10,
+  $journalOfInfamy to 10,
   $katalepticToxicology to 1,
   $keyToYourRoomsAboveAGamblingDen to 1,
   $leatheryHumanHeart to 1,
@@ -528,6 +563,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $talesOfTerror to 158,
   $theAirsOfLondon to null,
   $thirstyBombazineScrap to 22,
+  $touchedByFingerwork to null,
   $touchingLoveStory to 9,
   $tradeSecret to 1,
   $unearthlyFossil to 7,
@@ -552,6 +588,10 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 [[Opportunity Deck]]
 [[Your Social Engagements]]
 [[Debug Panel]]
+
+
+:: Surface-dreams
+
 
 
 :: The Law's Long Arm {"position":"350,1475","size":"100,100"}
@@ -587,6 +627,10 @@ Swaying ropes above the streets. A home to beggars, revolutionaries and the forg
 <<else>>
   * [[An old street sign]]
 <</if>>
+
+
+:: The red herald
+
 
 
 :: The strength of scars {"position":"500,550","size":"100,100"}
@@ -626,6 +670,33 @@ Seasoned veteran coming through!
     <<if $acquaintanceTheRepentantForger >= 5>>
       * [[A visit from the Repentant Forger]]
     <</if>>
+  <<elseif $theAirsOfLondon <= 49>>
+    * [[A Succession of visitors]]
+    <<if $journalOfInfamy >= 1>>
+      * [[Curled up with a book]]
+    <</if>>
+    <<if $acquaintanceTheSardonicMusicHallSinger >= 5>>
+      * [[A visit from the Sardonic Music-Hall Singer]]
+    <</if>>
+  <<elseif $theAirsOfLondon <= 74>>
+    * [[A disturbance outside]]
+    <<if $touchedByFingerwork>>
+      * [[Visions in the mirror]]
+    <</if>>
+    <<if $acquaintanceTheRegretfulSoldier >= 5>>
+      * [[A visit from the Regretful Soldier]]
+    <</if>>
+  <<elseif $theAirsOfLondon <= 99>>
+    * [[The red herald]]
+    <<if $visionOfTheSurface >= 1>>
+      * [[Surface-dreams]]
+    <</if>>
+    <<if $acquaintanceTheWryFunctionary >= 5>>
+      * [[A visit from the Wry Functionary]]
+    <</if>>
+  <</if>>
+  <<if $theAirsOfLondon >= 90 && $theAirsOfLondon <= 100>>
+    * [[A dreamless sleep]]
   <</if>>
 <</nobr>>
 
@@ -656,6 +727,10 @@ Suspicion is dropping…
 
 
 :: Use your influence to invite Slowcake's Amanuensis for a visit {"position":"500,675","size":"100,100"}
+
+
+
+:: Visions in the mirror
 
 
 
