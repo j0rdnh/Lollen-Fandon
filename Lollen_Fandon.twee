@@ -973,7 +973,7 @@ Suspicion is dropping…
 <</widget>>
 
 
-:: probability [function] {"position":"300,0","size":"100,100"}
+:: functions [function] {"position":"300,0","size":"100,100"}
 <<function "probability">>
 	<<set 
     	_scaler to _args[0],
