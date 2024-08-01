@@ -363,6 +363,10 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
 
+:: Spend a day in bed
+
+
+
 :: Start {"position":"0,0","size":"100,100"}
 
 
@@ -522,6 +526,7 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
   $suspicion to 2,
   $swornStatement to 2,
   $talesOfTerror to 158,
+  $theAirsOfLondon to null,
   $thirstyBombazineScrap to 22,
   $touchingLoveStory to 9,
   $tradeSecret to 1,
@@ -615,7 +620,14 @@ Seasoned veteran coming through!
 
 
 :: Time in Bed {"position":"500,450","size":"100,100"}
-
+<<nobr>>
+  <<if $theAirsOfLondon <= 24>>
+    * [[Spend a day in bed]]
+    <<if $acquaintanceTheRepentantForger >= 5>>
+      * [[A visit from the Repentant Forger]]
+    <</if>>
+  <</if>>
+<</nobr>>
 
 
 :: Tricks traps and treats {"position":"500,325","size":"100,100"}
@@ -664,18 +676,14 @@ Suspicion is dropping…
 
 
 :: Your Social Engagements {"position":"175,1000","size":"100,100"}
-<<nobr>>
 <!-- * [[Epistolary Matters]] -->
 * [[Attend to Matters of Society!]]
-<</nobr>>
 * [[Attend to Matters of Watchfulness and Nightmares]]
 * [[Attend to Matters of Shadows and Suspicion]]
 * [[Attend to Matters of Danger and Wounds]]
 * [[Attend to Matters of Persuasion and Scandal]]
-<<nobr>>
 <!-- * [[Attend to Matters of the Heart!]] -->
 * [[Correspond with a contact at the Shuttered Palace]]
-<</nobr>>
 
 
 :: changePoints [widget] {"position":"400,0","size":"100,100"}
