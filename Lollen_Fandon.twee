@@ -51,11 +51,27 @@ You awake refreshed, invigorated. A rasher gentleman might even leap from bed. Y
 Wounds is dropping… (-7 CP)
 Nightmares is dropping… (-2 CP)
 [The Airs of London change…] (set to 0)
-<<nobr>>
-  <<changePoints $wounds -7>>
-  <<changePoints $nightmares -2>>
-  <<set $theAirsOfLondon to 0>>
-<</nobr>>
+\
+<<changePoints $wounds -7>>\
+<<changePoints $nightmares -2>>\
+<<set $theAirsOfLondon to 0>>\
+
+
+:: Affect disinterest {"position":"325,2550"}
+A grand and unknown event may be taking over the city – but it will not drag you in its wake. You have things to do. Probably.
+
+!!!Success
+''Wildfire''
+You are above such things […] it can't hurt if people think that you are, […]
+What is happening? Who is coming? What does it mean? And, above all, what could possibly be contained within the Sixth Coil to be worth all of this vast and extravagant expense? […]
+''The Games will begin, in time. Until then, Mr Huffam may have diversions for you – and the tigers are busy in the Labyrinth, preparing.''
+
+A living story will begin soon. (Activates an unknown Living story; this message is not displayed.)
+An occurrence! Your 'Lingering Excitation' Quality is now 1!
+London hums with speculation. (Sets  Of Stripes, and Coils to 20 - The Coilheart Games are coming to London)
+\
+<<set $lingeringExcitation to 1>>\
+<<set $ofStripesAndCoils to 20>>\
 
 
 :: "And why would I care how Notable I am?" {"position":"825,800"}
@@ -156,7 +172,7 @@ You'd like to take the day off, but they will keep knocking.
 <</nobr>>
 
 
-:: A Tournament on the Horizon {"position":"175,2375"}
+:: A Tournament on the Horizon {"position":"175,2425"}
 The Coilheart Games. The ever-sealed Sixth Coil, and the prize within. The news prowls the city, dominates discussion. [...] No wonder Huffam is angling for an exclusive.
 With information so thin on the ground, gossip turns to speculation. [...]
 * [[Express excitement]]
@@ -559,7 +575,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 <</if>>
 * [[Sort through incoming mail]] -->
 
-:: Exhibit unshakeable determination {"position":"325,2450"}
+:: Exhibit unshakeable determination {"position":"325,2475"}
 Competitions mean winners. Whatever is in the Sixth Coil of the Labyrinth, it seems to be a grand prize indeed – and you want a part of it.
 
 !!!Success
@@ -584,6 +600,7 @@ A living story will begin soon. (Activates an unknown Living story; this message
 An occurrence! Your 'Lingering Excitation' Quality is now 1!
 London hums with speculation. (Sets  Of Stripes, and Coils to 20 - The Coilheart Games are coming to London)
 <<set $lingeringExcitation to 1>>\
+<<set $ofStripesAndCoils to 20>>\
 
 
 :: Flirt with the Amanuensis {"position":"825,725"}
@@ -928,7 +945,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $katalepticToxicology to 1,
   $keyToYourRoomsAboveAGamblingDen to 1,
   $leatheryHumanHeart to 1,
-  $lingeringExcitation to 0,
+  $lingeringExcitation to 1,
   $location to "Fallen London",
   $locketDepictingTwinSisters to 1,
   $londonStreetSign to 18,
@@ -953,7 +970,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $noduleOfTremblingAmber to 1,
   $notability to 0,
   $obscurity to 0,
-  $ofStripesAndCoils to 15,
+  $ofStripesAndCoils to 20,
   $oneiricPearl to 1,
   $ostentatiousDiamond to 34,
   $pageFromTheLiberVisionis to 1,
