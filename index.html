@@ -258,24 +258,22 @@ They turn and look when you pass. Oh yes they do.
     &lt;&lt;changePointsRange $shadowy &quot;1&quot; &quot;50&quot;&gt;&gt;
   &lt;&lt;/if&gt;&gt;
 &lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="An old street sign" tags="" position="500,2050" size="100,100">When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you&#39;re quick and lucky. Fancy a climb?
+
 &lt;&lt;set _proba to tw.probability(60, $shadowy, 70)&gt;&gt;\
 &lt;&lt;if _proba is true&gt;&gt;\
 !!!Success
 &#39;&#39;Quick and lucky and wise&#39;&#39;
   Even the Raggedy Men have stopped looking for street signs. But you know better. Your prize is two hundred feet above ground, nailed to a factory chimney and black with soot
   
-  Shadowy is increasing...
-  You have moved to a new area: The Flit
   You&#39;ve gained 1 x London Street sign
 &lt;&lt;set $londonStreetSign += 1&gt;&gt;\
 &lt;&lt;else&gt;&gt;\
 !!!Failure
   &#39;&#39;Nothing&#39;&#39;
   Not quick enough. Not lucky enough. If there are street signs still left up here, they&#39;re known only to bats.
-  
-  Shadowy is increasing...
-  You have moved to a new area: The Flit
 &lt;&lt;/if&gt;&gt;\
+Shadowy is increasing...
+You have moved to a new area: The Flit
 &lt;&lt;set $londonStreetSign += 1&gt;&gt;\
 &lt;&lt;set $location = &quot;The Flit&quot;&gt;&gt;\</tw-passagedata><tw-passagedata pid="6" name="A Reputation of Some Importance: Another Way" tags="" position="500,950" size="100,100">Your ability in one area has been long recognised. It is time for your other skills to be acknowledged.
 &#39;&#39;This will reset your Person of Some Importance specialisation for the cost of 12 Notability. This will not remove London&#39;s Marrow, Sinew, Blood, or Nerves, if you have obtained any of those qualities.&#39;&#39;
