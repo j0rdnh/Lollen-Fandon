@@ -93,8 +93,8 @@ They turn and look when you pass. Oh yes they do.
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
 <<set _proba to tw.probability(60, $shadowy, 70)>>\
 <<if _proba is true>>\
-  !!!Success
-  ''Quick and lucky and wise''
+!!!Success
+''Quick and lucky and wise''
   Even the Raggedy Men have stopped looking for street signs. But you know better. Your prize is two hundred feet above ground, nailed to a factory chimney and black with soot
   
   Shadowy is increasing...
@@ -102,7 +102,7 @@ When London was kneaded into its new form, the Masters declared the old street s
   You've gained 1 x London Street sign
 <<set $londonStreetSign += 1>>\
 <<else>>\
-  !!!Failure
+!!!Failure
   ''Nothing''
   Not quick enough. Not lucky enough. If there are street signs still left up here, they're known only to bats.
   
@@ -740,10 +740,8 @@ You now have 1 x Entry in Slowcake's Exceptionals
 !!!Success
 "Zugzwang," he remarks obscurely. He makes a note. "Very well: you have established your status and shamed me." He rises, and dusts off the seat of his chair. "I suppose now that I shall have to walk home. Such is the pawn's life."
 
-Making Waves is increasing… (+3 CP)
-<<nobr>>
-  <<changePoints $makingWaves 3>>
-<</nobr>>
+Making Waves is increasing… (+3 CP)\
+<<changePoints $makingWaves 3>>
 
 
 /* :: Seek a Patron! {"position":"325,1750"} */
@@ -757,6 +755,19 @@ Making Waves is increasing… (+3 CP)
 /* :: Send a postcard {"position":"500,1000"} */
 
 
+
+:: Show a modicum of caution
+!!!Success
+''Wildfire''
+You temper your reaction. […] This could be another false-summer disaster, […]
+What is happening? Who is coming? What does it mean? And, above all, what could possibly be contained within the Sixth Coil to be worth all of this vast and extravagant expense? […]
+''The Games will begin, in time. Until then, Mr Huffam may have diversions for you – and the tigers are busy in the Labyrinth, preparing.''
+
+A living story will begin soon. (Activates the Living story Dissipating Vibration; this message is not displayed.)
+An occurrence! Your 'Lingering Excitation' Quality is now 1!
+London hums with speculation. (Sets  Of Stripes, and Coils to 20 - The Coilheart Games are coming to London)
+<<set $lingeringExcitation to 1>>\
+<<set $ofStripesAndCoils to 20>>
 
 /* :: Sort through incoming mail {"position":"500,925"} */
 
@@ -931,6 +942,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $noduleOfTremblingAmber to 1,
   $notability to 0,
   $obscurity to 0,
+  $ofStripesAndCoils to 15,
   $oneiricPearl to 1,
   $ostentatiousDiamond to 34,
   $pageFromTheLiberVisionis to 1,
