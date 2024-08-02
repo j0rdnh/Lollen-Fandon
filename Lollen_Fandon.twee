@@ -57,6 +57,18 @@ Nightmares is dropping… (-2 CP)
   <<set $theAirsOfLondon to 0>>
 <</nobr>>
 
+
+:: "And why would I care how Notable I am?"
+He blinks like a limelit toad. "Why would you... I don't understand."
+
+Success
+''"Well..."''
+
+You might as well have asked him why the dark or what the sky.[…] Eventually he confesses, with obvious pain, that the Bazaar itself monitors the Notable, and arranges 'certain starring roles' for them. Further than that, he will not be drawn.
+
+''Notability may unlock advanced Professions and Lodgings, among other things.''
+
+
 :: An easy confidence {"position":"500,1175","size":"100,100"}
 You're better than you thought.
 ''This will increase your Persuasive by an uncertain but significant amount, at the price of five Confident Smiles.''
@@ -79,6 +91,7 @@ They turn and look when you pass. Oh yes they do.
 
 :: An old street sign {"position":"500,1900","size":"100,100"}
 When London was kneaded into its new form, the Masters declared the old street signs contraband. They say you can still find them in the Flit if you're quick and lucky. Fancy a climb?
+<<nobr>>
 <<set _proba to tw.probability(60, $shadowy, 70)>>
 <<if _proba is true>>
   !!!Success
@@ -88,9 +101,7 @@ When London was kneaded into its new form, the Masters declared the old street s
   Shadowy is increasing...
   You have moved to a new area: The Flit
   You've gained 1 x London Street sign
-  <<nobr>>
-    <<set $londonStreetSign += 1>>
-  <</nobr>>
+  <<set $londonStreetSign += 1>>
 <<else>>
   !!!Failure
   ''Nothing''
@@ -99,9 +110,8 @@ When London was kneaded into its new form, the Masters declared the old street s
   Shadowy is increasing...
   You have moved to a new area: The Flit
 <</if>>
-<<nobr>>
-  	<<set $londonStreetSign += 1>>
- 	<<set $location = "The Flit">>
+<<set $londonStreetSign += 1>>
+<<set $location = "The Flit">>
 <</nobr>>
 
 
@@ -304,7 +314,7 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 
 !!!Alter your  Notability:
 * [["I deserve a more emphatic type-face, at the very least."]]
-* [[Recommend an unknown acquaintance]]
+/* * [[Recommend an unknown acquaintance]] */
 * [[Throw the Amanuensis out on his oily little ear]]
 * [[Gain St Destin's Candle]]
 
@@ -314,7 +324,7 @@ Here you may find Watchful pursuits, and opportunities to lower Nightmares. You 
 * [[Bribe the man]]
 * [[Say nothing. Wait for the Amanuensis to speak instead]]
 * [[Flirt with the Amanuensis]]
-* [[Spread gossip about a rival]]
+/* * [[Spread gossip about a rival]] */
 
 
 :: A visit from the Regretful Soldier
@@ -389,6 +399,73 @@ Wounds is dropping… (-3 CP)
 <</nobr>>
 
 
+:: Bribe the man
+A furtive red spark of interest enlivens the glassy darkness of his eyes. "As it happens, my employers do have... certain requirements."
+''A thousand souls will increase your Making Waves quality by between six and ten change points.''
+
+!!!Success
+''Clandestine deliveries''
+He makes a note. "I see you have achieved... a great deal. Perhaps you'd like to make your case now?"
+
+You've lost 1000 x Soul
+Making Waves is increasing… (+6-10 CP)
+<<nobr>>
+  <<set $soul -= 1000>>
+  <<changePointsRange 6 10>>
+<</nobr>>
+[[A visit from Slowcake's Amanuensis]]
+
+:: Boast wildly
+You have stories to tell. Insert yourself in those stories. Of course, Slowcake's sources are excellent, and if you're unlucky, you'll be caught out.
+You may use this option if you're desperate. You will lose the required items.
+
+''This is a gamble! But if it's getting close to that time of the week, perhaps it's worth a try. The greater your Making Waves, the greater the possible effect, good or bad.''
+
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 50>>
+    !!!Success
+    ''A cautious simper''
+    "Consistently? That is–-if I may say so-–magnificent. And how tall exactly? Good Lord! And the names of the other guests? Really? In person? Do go on—"
+    
+    Making Waves is increasing… ( + [1 upto current  Making Waves level] CP)
+    <<changePointsRange $makingWaves 1 $makingWaves>>
+  <<else>>
+    !!!Failure
+    ''A nervous simper''
+    "Ah – I'm afraid – that is – the corroborating evidence – there's been some sort of mistake somewhere. Excuse me. I must confirm the position with Mr Slowcake in person—"
+
+    Making Waves is dropping… ( - [( 1 to current  Making Waves level) x 1.2] CP)
+    <<changePointsRange $makingWaves -$makingWaves -1>>
+  <</if>>
+  You've lost 1 x Confident Smile
+  You've lost 1 x Tale of Terror!!
+  You've lost 1 x Scrap of Incendiary Gossip
+  <<set $confidentSmile -= 1>>
+  <<set $taleOfTerror -= 1>>
+  <<set $scrapOfIncendiaryGossip -= 1>>
+<</nobr>>
+[[A visit from Slowcake's Amanuensis]]
+
+
+:: Chat to the Assistant
+Making Waves and Notability. What's the difference? Why would you choose to convert one to the other?
+
+!!!Success
+''"Allow me the liberty of a metaphor."''
+"You […] are a majestic ship crossing the Unterzee.[…] Waves arise in your wake.[…] then they dissipate into ripples.[…] But the diligent and the perceptive […] record the details of your passage.[…] records persist […] much longer than a ripple."
+''To put this another way, Making Waves will drop quickly each week. Notability will remain indefinitely, as long as your Making Waves is at least equal to your Notability when Time the Healer comes calling. In other words, to maintain Notability at 5, you'll need to ensure your Making Waves is at least 5.''
+
+Making Waves is increasing… (+1 CP, up to level 3)
+<<if $makingWaves < 3>>
+  <<changePointsRange $makingWaves 1 6>>
+  <<if $makingWaves > 3>>
+    <<set $makingWaves to 3>>
+  <</if>>
+<</if>>
+[[A visit from Slowcake's Amanuensis]]
+
+
 :: Correspond with a contact at the Shuttered Palace {"position":"350,900","size":"100,100"}
 You met a Wry Functionary at the Ambassador's Ball. You could cultivate this relationship.
 * [[Write a letter]]
@@ -417,7 +494,7 @@ Quite the read, this one.
     Nightmares is increasing… (+1 CP)
     You've gained 2 x Appalling Secret
     <<changePoints $wounds -3>>
-    <<changePoints $nightmareas 1>>
+    <<changePoints $nightmares 1>>
     <<set $appallingSecret += 2>>
   <</if>>
   [The Airs of London change…] (random)
@@ -439,6 +516,7 @@ come here to run the code
 You could not <em>possibly</em> be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
 !!!Success
 ''Alibis for days''
+
 The Clay man is [...] thorough. He was [...] with you all day yesterday. And [...] the day before. And, it transpires, all week. He produces receipts, corroborating your whereabouts [...]
 The law leaves with [...] their notebooks filled with an entirely fabricated social calendar.
 * Suspicion is dropping...
@@ -461,7 +539,7 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 	      * [[Compile licentious gossip]]
       <</if>>
     <</if>> 
-    <<if $dangerous > 80 and $talesOfTerror > 4>>
+    <<if $dangerous > 80 and $taleOfTerror > 4>>
       * [[Write down some favoured fighting techniques]]
     <</if>>
     <<if $shadowy > 80 and $journalOfInfamy > 4>>
@@ -477,8 +555,80 @@ Compose letters to other players, and send them. Or, if you have letters, read t
 * [[Sort through incoming mail]] -->
 
 
+:: Flirt with the Amanuensis
+He's only human. If he's even that. Of course, he does spend his time in the company of the most dazzling and extraordinary of London's notables...
+<<nobr>>
+  <<set _proba to tw.probability(60, $persuasive, 350)>>
+  <<if _proba is true>>
+    !!!Success
+    ''"Er...I...um...it...fhuh..."''
+    The Amanuensis' collar seems too tight for him. He squirms like a school-boy. He has difficulty looking you in the eye, but he can't seem to resist a […] impish smile. He leaves, reluctantly, after making quite a number of notes in his little book.
+    Even the Amanuensis can't resist your charm. He makes some favourable changes in his little book.
+
+    Making Waves is increasing… (+5 CP)
+    <<changePoints $makingWaves 5>>
+  <<else>>
+    !!!Failure
+    ''"Extraordinary!"''
+    "I am terribly flattered […],  [formal address]. I must make a note: my own status has increased more than I expected as a result of your, ah, admiration. Excuse me. I will have to return to Mr Slowcake and abase myself, to prevent any difficulties or miscalibrations."
+    Your flirting worked a little too well. It doesn't help your reputation.
+    
+    Making Waves is dropping… (-1 CP)
+    <<set $makingWaves -1>>
+  <</if>>
+  Persuasive is increasing…
+  You've lost 1 x Confident Smile
+  <<changePointsRange $persuasive 1 100>>
+  <<set $confidentSmile -= 1>>
+<</nobr>>
+
+
+
+:: Gain St Destin's Candle
+Consume yourself? What madness is this? When one is alone, with no pride and no profession, one gains nothing. But perhaps one will register a certain defiance of the Bazaar's order.
+''This will destroy all your Notability, Making Waves and Favours: Society, and gain you St Destin's Candle. You may not do this if you currently have a Profession.''
+
+!!!Success
+''And he thought he'd seen everything''
+[…]
+Slowcake's Amanuensis backs away cautiously but rapidly, as one might from a live cobra stuffed with paraffin. […] "I'll see myself out." He scuttles crab-wise into the night.
+He leaves no candle behind him. Your rashness has won you no candle.
+You tear out and eat the page describing you. The Amanuensis leaves you "no candle".
+
+You've gained 1 x St Destin's Candle
+Your 'Notability' Quality has gone!
+Your 'Making Waves' Quality has gone!
+Your 'Favours: Society' Quality has gone!
+You've gained 1 x Seeking Mr Eaten's Name
+<<nobr>>
+  <<set $destinsCandle += 1>>
+  <<set $notability to 0>>
+  <<set $makingWaves to 0>>
+  <<set $favoursSociety to 0>>
+  <<set $seekingMrEatensName += 1>>
+<</nobr>>
+
+
 <!-- :: Give a Gift of Fate {"position":"325,1475"} -->
 
+
+
+:: "I deserve a more emphatic type-face, at the very least."
+Convince him to promote your entry in Slowcake's Exceptionals... if your Making Waves, plus your Bizarre, Dreaded and Respectable, is high enough.
+''This will increase your Notability by 1 and consume your Making Waves, leaving you just enough to maintain your Notability.''
+
+!!!Success
+''An Achievement Unsealed!''
+''He nods approvingly: rises, tucks away his notebook and pencil, and shakes your hand. "I can assure you of an alteration in your favour in the very next edition. As long as your star remains in the ascendant."''
+
+You've gained 1 x Notability (up to 15)
+An occurrence! Your 'Making Waves' Quality is now [equal to your new Notability level]!
+<<nobr>>
+  <<if $notability < 15>>
+    <<set $notability += 1>>
+  <</if>>
+  <<set $makingWaves = $notability>>
+<</nobr>>
 
 
 <!-- :: Invite someone to a spot of Suspicious Loitering {"position":"500,400"} -->
@@ -545,6 +695,34 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 
 /* :: Poison an acquaintance! {"position":"450,675"} */
 
+
+
+:: Purchase an entry in Slowcake's Exceptionals
+"Has there been an oversight? Is my name not already in this edition? Dear me!"
+''This will purchase an entry and continue the conversation.''
+
+!!!Success
+''A stroke of the pen''
+
+You've lost 2900 x Penny
+You now have 1 x Entry in Slowcake's Exceptionals
+<<nobr>>
+  <<set $penny -= 2900>>
+  <<set $entryInSlowcakesExceptionals += 1>>
+<</nobr>>
+[[A visit from Slowcake's Amanuensis]]
+
+
+:: Say nothing. Wait for the Amanuensis to speak instead
+...
+
+!!!Success
+"Zugzwang," he remarks obscurely. He makes a note. "Very well: you have established your status and shamed me." He rises, and dusts off the seat of his chair. "I suppose now that I shall have to walk home. Such is the pawn's life."
+
+Making Waves is increasing… (+3 CP)
+<<nobr>>
+  <<changePoints $makingWaves 3>>
+<</nobr>>
 
 
 /* :: Seek a Patron! {"position":"325,1750"} */
@@ -651,16 +829,19 @@ Allow the natural healing processes to do their slow and peaceful work.
   $darkdropCoffee to 3,
   $deedToADecommissionedSteamer to 1,
   $deepZeeCatch to 7,
+  $destinsCandle to null,
   $direfulReflection to 3,
   $dubiousTestimony to 31,
   $dreaded to 0,
   $dropOfPrisonersHoney to 283,
+  $entryInSlowcakesExceptionals to 0,
   $exceptionalShortStory to 1,
   $exquisiteToy to 1,
   $extraordinaryImplication to 35,
   $falseHagiotoponym to 1,
   $favorableCircumstance to 1,
   $favourInHighPlaces to 5,
+  $favoursSociety to null,
   $fFGebrantsTinctureOfVigour to 15,
   $fFGebrantsTinctureOfVigourHalfFull to 2,
   $firstCityCoin to 10,
@@ -756,7 +937,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $surfaceSilkScrap to 45,
   $suspicion to 2,
   $swornStatement to 2,
-  $talesOfTerror to 158,
+  $taleOfTerror to 158,
   $theAirsOfLondon to null,
   $thirstyBombazineScrap to 22,
   $touchedByFingerwork to null,
@@ -814,6 +995,22 @@ You recall the sky.
   <</if>>
   [The Airs of London change…] (random)
   <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
+
+
+:: "The company I keep speaks for me."
+''This will trade one of your Favours: Society for between six and ten points of Making Waves.''
+
+!!!Success
+''"Oh, I say!"''
+His pencil flies across his note-pad. A haze of graphite arises. You drop names and recount encounters with the artless casualness of a Mahogany Hall singer strewing flowers. He is impressed. Is he impressed enough?
+
+You've lost 1 x Favours: Society
+Making Waves is increasing… (+ 6-10 CP (random))
+[[A visit from Slowcake's Amanuensis]]
+<<nobr>>
+  <<set $favoursSociety += 1>>
+  <<changePointsRange $makingWaves 6 10>>
 <</nobr>>
 
 
@@ -911,6 +1108,47 @@ Seasoned veteran coming through!
 <</nobr>>
 
 
+:: Throw the Amanuensis out on his oily little ear
+This is an intemperate and discourteous assault on a guest, and it will wreak havoc on your reputation. But perhaps, sometimes, enough is enough.
+
+!!!Success
+''A squawk and a bump''
+The little fellow lies for a moment in a tangle of limbs on the pavement. When he rises, his face as blank as unmodelled clay.
+[…]
+As you close the door in his face, he makes a note in his little book, and underlines it heavily, twice.
+
+You've lost 2 x Notability
+Nightmares is dropping… (-1 CP)
+You've gained 1 x Confident Smile (up to 21)
+Connected: The Masters of the Bazaar is dropping… (-1 CP)
+Making Waves is increasing… (+ 1-10 CP (random))
+Scandal is increasing… (+2 CP)
+You no longer have any of this: Entry in Slowcake's Exceptionals
+You've gained 1 x Favours: Revolutionaries (up to 7)
+You've gained 1 x Favours: Bohemians (up to 7)
+You've gained 1 x Favours: The Docks (up to 7)
+You've lost 1 x Favours: Hell
+You've lost 1 x Favours: Society
+<<nobr>>
+  <<set $notability -= 2, $entryInSlowcakesExceptionals to null, $favoursHell -= 1, $favoursSociety -= 1>>
+  <<if $confidentSmile < 21>>
+    <<set $confidentSmile += 1>>
+  <</if>>
+  <<changePoints $connectedTheMastersOfTheBazaar -1>>
+  <<changePointsRange $makingWaves 1 10>>
+  <<changePoints $scandal 2>>
+  <<if $favoursRevolutionaries < 7>>
+    <<set $favoursRevolutionaries += 1>>
+  <</if>>
+  <<if $favoursBohemians < 7>>
+    <<set $favoursBohemians += 1>>
+  <</if>>
+  <<if $favoursTheDocks < 7>>
+    <<set $favoursTheDocks += 1>>
+  <</if>>
+<</nobr>>
+
+
 :: Time in Bed {"position":"500,450","size":"100,100"}
 <<nobr>>
   <<if $theAirsOfLondon <= 24>>
@@ -1005,11 +1243,54 @@ And now you wait.
 
 
 :: Visions in the mirror
+You lie, caught between waking and sleeping. The mirror watches you.
+<<nobr>>
+  <<set _x to random(0,100)>>
+  <<if _x <= 60>>
+    !!!Success
+    ''Dreams of forests''
+    Bright bird, glass-bright stream, perfumed air. It's a dream. You are not there. The grass is soft beneath your feet.
 
+    Wounds is dropping… (-3 CP)
+    Nightmares is dropping… (-4 CP)
+    <<changePoints $wounds -3>>
+    <<changePoints $nightmares -4>>
+  <<else>>
+    !!!Failure
+    ''Dreams of jungles''
+    Screeching parrot, boiling stream, humid air like a clammy blanket. Toss and turn as you will, you cannot escape it. Again and again you wake just before you sink into the earth.
+
+    Nightmares is increasing… (+3 CP)
+    <<changePoints $nightmares 3>>
+  <</if>>
+  [The Airs of London change…] (random)
+  <<set $theAirsOfLondon to random(0,100)>>
+<</nobr>>
 
 
 :: Where the bodies are buried {"position":"500,2025","size":"100,100"}
+The Disgruntled Colonel must know some serious secrets: a cabal of ministers and senior palace functionaries will pay handsomely if you can persuade him to not publish.
+<<nobr>>
+  <<set _proba to tw.probability(60, $persuasive, 72)>>
+  <<if _proba is true>>
+    !!!Success
+    ''A surprising lack of secrets''
+    Over port and cigars […] you get to know the old fellow. […] soon […] the truth becomes clear: he is bored. His memoirs are just a way of stirring up trouble […] He agrees to split the hush-money […] if you tell the ministers that he put up a tremendous struggle.
 
+    Persuasive is increasing…
+    You've gained 77 x Moon-Pearl
+    <<set $moonPearl += 77>>
+  <<else>>
+    !!!Failure
+    ''Troublesome old goat''
+    The Disgruntled Colonel is having far too much fun upsetting the mighty to be swayed by your charms. Over the next few weeks you discover that he has said things about you to a lower class of journalist. Things that aren't even true!
+
+    Persuasive is increasing…
+    Scandal is increasing… (+1 CP)
+    <<changePoints $scandal 1>>
+  <</if>>
+  <<changePointsRange $persuasive 1 100>>
+<</nobr>>
 
 
 :: Write a letter {"position":"500,900","size":"100,100"}
