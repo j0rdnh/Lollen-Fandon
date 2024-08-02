@@ -727,6 +727,10 @@ Interestingly, it's a list with your name at the bottom. You say nothing as the 
 <</nobr>>
 
 
+:: Old Stories
+* [[A Tournament on the Horizon]]
+
+
 :: Opportunity Deck {"position":"175,1875"}
 <<if $location == "Fallen London">>
 	<<if $suspicion == 2>>
@@ -1052,7 +1056,7 @@ Allow the natural healing processes to do their slow and peaceful work.
 :: StoryMenu [header] {"position":"0,1500"}
 [[Opportunity Deck]]
 [[Your Social Engagements]]
-[[A Tournament on the Horizon]]
+[[Old Stories]]
 [[Debug Panel]]
 
 
