@@ -160,6 +160,16 @@ You'd like to take the day off, but they will keep knocking.
   <<set $theAirsOfLondon to random(0,100)>>
 <</nobr>>
 
+
+:: A Tournament on the Horizon
+The Coilheart Games. The ever-sealed Sixth Coil, and the prize within. The news prowls the city, dominates discussion. [...] No wonder Huffam is angling for an exclusive.
+With information so thin on the ground, gossip turns to speculation. [...]
+* [[Express excitement]]
+* [[Show a modicum of caution]]
+* [[Exhibit unshakeable determination]]
+* [[Affect disinterest]]
+
+
 :: A trip to the Flit {"position":"500,1950"}
 A Raggedy Man, one of the Flit's beggars, will show you around if you bring something for the stew.
 !!!Success
@@ -513,7 +523,7 @@ come here to run the code
 
 
 :: Employ the services of the Clay Corroborator {"position":"525,1450"}
-You could not <em>possibly</em> be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
+You could not //possibly// be the individual these constables are searching for, and for a mere handful of pennies your clay compatriot will be pleased to let them know precisely why that is.
 !!!Success
 ''Alibis for days''
 
@@ -553,6 +563,19 @@ Compose letters to other players, and send them. Or, if you have letters, read t
   * [[The rewards of correspondence]]
 <</if>>
 * [[Sort through incoming mail]] -->
+
+
+:: Express excitement
+!!!Success
+''Wildfire
+The Games will begin, in time. Until then, Mr Huffam may have diversions for you – and the tigers are busy in the Labyrinth, preparing.''
+
+A living story will begin soon. (Activates an unknown Living story; this message is not displayed.)
+An occurrence! Your 'Lingering Excitation' Quality is now 1!
+London hums with speculation. (Sets  Of Stripes, and Coils to 20 - The Coilheart Games are coming to London)
+<<nobr>>
+  <<set $lingeringExcitation to 1>>
+<</nobr>>
 
 
 :: Flirt with the Amanuensis {"position":"825,725"}
@@ -668,7 +691,7 @@ Your knuckles are bruised – this fashion for iron hats among the youth will be
 :: Official incompetence {"position":"500,1825"}
 A Constable is frantically chasing a spiralling mass of papers down the street, snatching any that come within range. Passers-by hand them to him or surreptitiously grab them and tuck them away. One trips him up just as a document lands at your feet.
 ''This will help you with Suspicion.''
-<h1>Success</h1>
+!!!Success
 ''A pleasing piece of luck''
 Interestingly, it's a list with your name at the bottom. You say nothing as the Constable charges, wailing, past.
 * You've gained 1 x Stolen Correspondence
@@ -778,22 +801,28 @@ Allow the natural healing processes to do their slow and peaceful work.
 :: StoryInit {"position":"100,0","size":"100,100"}
 <<set
   $aBadEnd to 1,
-  $aeolianScream to 24,
-  $amanitaSherry to 42,
-  $anIdentityUncovered to 7,
-  $aPersonOfSomeImportance to null,
-  $apostatesPsalm to 7,
+  $acquaintanceTheDubiouslyShrewdRat to 4,
+  $acquaintanceTheHoneyAddledDetective to 1,
+  $acquaintanceTheIncandescentBookseller to 1,
   $acquaintanceTheRegretfulSoldier to null,
   $acquaintanceTheRepentantForger to null,
   $acquaintanceTheSardonicMusicHallSinger to null,
+  $acquaintanceTheStarvingPoet to 1,
   $acquaintanceTheWryFunctionary to null,
-  $attar to 7,
   $aClandestineRendevousAtWatchmakersHill to 1,
+  $aeolianScream to 24,
   $aHeadfulOfPicaresqueTales to 1,
   $aHeavyIronBox to 1,
+  $amanitaSherry to 42,
+  $ambitionLightFingers to 22,
   $aNameWhisperedInDarkness to 4,
+  $anIdentityUncovered to 7,
+  $aPersonOfSomeImportance to null,
+  $apostatesPsalm to 7,
   $appallingSecret to 23,
   $aScionOfAStarvedRose to 1,
+  $attar to 7,
+  $aTurncoat to 1,
   $aVialOfQueenlyAttar to 1,
   $baptisedRattusFaberCorpse to 2,
   $baroque to 2,
@@ -819,6 +848,8 @@ Allow the natural healing processes to do their slow and peaceful work.
   $compilationOfCaseNotes to 1,
   $compromisingDocument to 11,
   $confidentSmile to 1,
+  $connectedTheDuchess to 11,
+  $connectedTheWidow to 14,
   $correspondencePlaque to 68,
   $countingTheDays to 0,
   $crateOfExpeditionSupplies to 25,
@@ -841,7 +872,14 @@ Allow the natural healing processes to do their slow and peaceful work.
   $falseHagiotoponym to 1,
   $favorableCircumstance to 1,
   $favourInHighPlaces to 5,
+  $favoursBohemians to 4,
+  $favoursHell to 3,
+  $favoursRubberyMen to 1,
   $favoursSociety to null,
+  $favoursTheChurch to 2,
+  $favoursTheGreatGame to 3,
+  $favoursTombColonies to 4,
+  $favoursUrchins to 1,
   $fFGebrantsTinctureOfVigour to 15,
   $fFGebrantsTinctureOfVigourHalfFull to 2,
   $firstCityCoin to 10,
@@ -870,6 +908,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $katalepticToxicology to 1,
   $keyToYourRoomsAboveAGamblingDen to 1,
   $leatheryHumanHeart to 1,
+  $lingeringExcitation to 0,
   $location to "Fallen London",
   $locketDepictingTwinSisters to 1,
   $londonStreetSign to 18,
@@ -913,6 +952,17 @@ Allow the natural healing processes to do their slow and peaceful work.
   $relicOfTheFourthCity to 74,
   $relicOfTheThirdCity to 18,
   $relicOfTheSecondCity to 24,
+  $renownBohemians to 2,
+  $renownConstables to 2,
+  $renownCriminals to 4,
+  $renownHell to 6,
+  $renownRevolutionaries to 6,
+  $renownRubberyMen to 2,
+  $renownSociety to 5,
+  $renownTheChurch to 2,
+  $renownTheDocks to 5,
+  $renownTheGreatGame to 2,
+  $renownUrchins to 2,
   $respectability to 0,
   $romanticNotion to 43,
   $routeTheFlit to true,
@@ -935,7 +985,7 @@ Allow the natural healing processes to do their slow and peaceful work.
   $stolenKiss to 6,
   $stormThrenody to 2,
   $surfaceSilkScrap to 45,
-  $suspicion to 2,
+  $suspicion to 1,
   $swornStatement to 2,
   $taleOfTerror to 158,
   $theAirsOfLondon to null,
@@ -1216,7 +1266,7 @@ Dangerous is increasing… (+1 CP, up to level 200 +  Dangerous Gains)
 :: Unleash Baseborn & Fowlingpiece {"position":"500,1575"}
 The Neath's most ferocious lawyers. Their barristers will have the sturdiest policeman quaking in his boots on your behalf.
 
-<h1>Success</h1>
+!!!Success
 ''Expensive, but worth it''
 
 'The Constable in question has signed a testimonial to the effect that you didn't do it, you wouldn't know how to do it, and that you were in Paris at the time it happened.'
